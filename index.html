@@ -62,58 +62,62 @@
     <!-- Top Announcement Bar -->
     <div class="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 font-semibold text-xs md:text-sm py-1 px-4 text-center tracking-wider uppercase flex items-center justify-center gap-2 shadow-md z-50">
         <i class="fa-solid fa-trophy animate-bounce text-slate-900"></i>
-        <span>Junior Premier League • Official Tournament Portal & CricHeroes Live Center</span>
+        <span>Junior Premier League • Official Tournament Portal & Memory Corner</span>
     </div>
 
     <!-- Navigation Header -->
     <nav class="sticky top-0 z-40 bg-jpl-navy/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
+                <!-- Logo Display (Dynamic Image / Fallback Icon) -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
-                    <div class="w-12 h-12 bg-gradient-to-br from-jpl-gold to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20 transform -rotate-3 hover:rotate-0 transition-transform">
-                        <i class="fa-solid fa-cricket-bat-ball text-2xl text-slate-950"></i>
+                    <div id="app-logo-container" class="w-12 h-12 rounded-xl overflow-hidden bg-gradient-to-br from-jpl-gold to-amber-600 flex items-center justify-center shadow-lg shadow-amber-500/20 transform -rotate-3 hover:rotate-0 transition-transform border border-amber-400/40">
+                        <i id="app-logo-fallback" class="fa-solid fa-cricket-bat-ball text-2xl text-slate-950"></i>
+                        <img id="app-logo-img" src="" alt="JPL Logo" class="hidden w-full h-full object-cover">
                     </div>
                     <div>
                         <span class="font-heading text-3xl font-bold tracking-wider leading-none block text-white">JUNIOR PREMIER <span class="text-jpl-gold" id="brand-season-display">LEAGUE</span></span>
-                        <span class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold">Official Cricket Portal</span>
+                        <span class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold">Official Tournament Hub</span>
                     </div>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden lg:flex items-center gap-1">
-                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn active px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
+                <div class="hidden xl:flex items-center gap-1">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn active px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-house"></i> Home
                     </button>
-                    <button onclick="switchTab('register')" id="nav-register" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
+                    <button onclick="switchTab('register')" id="nav-register" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-user-plus"></i> Register
                     </button>
-                    <button onclick="switchTab('live')" id="nav-live" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5 text-rose-400">
+                    <button onclick="switchTab('live')" id="nav-live" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5 text-rose-400">
                         <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> Live Score
                     </button>
-                    <button onclick="switchTab('fixtures')" id="nav-fixtures" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
+                    <button onclick="switchTab('fixtures')" id="nav-fixtures" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-calendar-days"></i> Fixtures
                     </button>
-                    <button onclick="switchTab('past-seasons')" id="nav-past-seasons" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
+                    <button onclick="switchTab('memory')" id="nav-memory" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5 text-amber-300">
+                        <i class="fa-solid fa-images"></i> Memory Corner
+                    </button>
+                    <button onclick="switchTab('past-seasons')" id="nav-past-seasons" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-award"></i> Hall of Fame
                     </button>
-                    <button onclick="switchTab('committee')" id="nav-committee" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
+                    <button onclick="switchTab('committee')" id="nav-committee" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5">
                         <i class="fa-solid fa-users-gear"></i> Committee
                     </button>
-                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn px-3.5 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5 bg-slate-800/80 text-jpl-gold hover:bg-slate-700">
+                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn px-3 py-2 rounded-lg font-semibold text-xs transition-all flex items-center gap-1.5 bg-slate-800/80 text-jpl-gold hover:bg-slate-700">
                         <i class="fa-solid fa-shield-halved"></i> Admin
                     </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800 focus:outline-none">
+                <button onclick="toggleMobileMenu()" class="xl:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800 focus:outline-none">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-jpl-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+        <div id="mobile-menu" class="hidden xl:hidden bg-jpl-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
             <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold text-sm">
                 <i class="fa-solid fa-house text-jpl-gold"></i> Home
             </button>
@@ -125,6 +129,9 @@
             </button>
             <button onclick="switchTab('fixtures'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold text-sm">
                 <i class="fa-solid fa-calendar-days text-jpl-gold"></i> Match Fixtures
+            </button>
+            <button onclick="switchTab('memory'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-amber-300 hover:bg-slate-800 flex items-center gap-3 font-semibold text-sm">
+                <i class="fa-solid fa-images"></i> Memory Corner / Gallery
             </button>
             <button onclick="switchTab('past-seasons'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold text-sm">
                 <i class="fa-solid fa-award text-jpl-gold"></i> Hall of Fame
@@ -154,14 +161,14 @@
                         JUNIOR PREMIER LEAGUE <span class="text-jpl-gold" id="hero-season-title">SEASON</span>
                     </h1>
                     <p class="text-slate-300 text-base md:text-lg leading-relaxed">
-                        Welcome to the official digital hub of the Junior Premier League! Register your squad profile, track CricHeroes-style live scores, inspect match schedules, and celebrate our tournament history.
+                        Welcome to the official digital portal of the Junior Premier League! Register player profiles with invitation passcodes, track CricHeroes-style live scores, inspect schedules, and browse historic tournament memories.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2">
                         <button onclick="switchTab('register')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-base hover:shadow-lg hover:shadow-amber-500/25 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
                             <i class="fa-solid fa-id-card"></i> Player Registration
                         </button>
-                        <button onclick="switchTab('live')" class="px-6 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-base hover:bg-slate-700 transition-all flex items-center gap-2">
-                            <i class="fa-solid fa-tower-broadcast text-rose-500"></i> CricHeroes Live Score
+                        <button onclick="switchTab('memory')" class="px-6 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-base hover:bg-slate-700 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-images text-amber-400"></i> Memory Corner
                         </button>
                     </div>
                 </div>
@@ -179,10 +186,10 @@
 
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
                     <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
-                        <i class="fa-solid fa-calendar-check"></i>
+                        <i class="fa-solid fa-camera font-bold"></i>
                     </div>
-                    <div class="text-3xl font-heading font-bold text-white" id="home-stat-fixtures">0</div>
-                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Scheduled Matches</div>
+                    <div class="text-3xl font-heading font-bold text-white" id="home-stat-gallery">0</div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Memory Photos</div>
                 </div>
 
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
@@ -231,22 +238,22 @@
                     </button>
                 </div>
 
-                <!-- Fixtures Teaser -->
+                <!-- Memory Corner Teaser Card -->
                 <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
                             <span class="text-xs font-bold uppercase tracking-widest text-jpl-gold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-                                <i class="fa-solid fa-calendar-days mr-1"></i> Tournament Schedule
+                                <i class="fa-solid fa-images mr-1"></i> Memory Corner
                             </span>
-                            <span class="text-xs text-slate-400">Fixtures Hub</span>
+                            <span class="text-xs text-slate-400">Photo Gallery</span>
                         </div>
-                        <h3 class="text-2xl font-heading font-bold text-white">Upcoming Matches</h3>
+                        <h3 class="text-2xl font-heading font-bold text-white">Historic Moments & Celebrations</h3>
                         <p class="text-slate-300 text-sm leading-relaxed">
-                            Check out scheduled team fixtures, match venues, dates, and timings uploaded directly by the tournament committee.
+                            Explore match action shots, team celebrations, trophy unveilings, and cherished tournament memories uploaded exclusively by the admin.
                         </p>
                     </div>
-                    <button onclick="switchTab('fixtures')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
-                        View Schedule & Fixtures <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <button onclick="switchTab('memory')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        Browse Memory Corner <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 </div>
             </div>
@@ -309,7 +316,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <!-- Form -->
+                    <!-- Form Inputs -->
                     <div class="lg:col-span-7 bg-jpl-card border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
                         <div class="border-b border-slate-800 pb-4">
                             <h2 class="text-3xl font-heading font-bold text-white">PLAYER REGISTRATION FORM</h2>
@@ -460,7 +467,7 @@
             </div>
         </section>
 
-        <!-- ================= 3. CRICHEROES-STYLE LIVE MATCH HUB ================= -->
+        <!-- ================= 3. CRICHEROES LIVE SCORE HUB ================= -->
         <section id="sec-live" class="hidden space-y-8">
             <div id="live-inactive-card" class="bg-jpl-card border border-slate-800 rounded-3xl p-12 text-center space-y-4">
                 <div class="w-16 h-16 mx-auto rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-3xl">
@@ -509,14 +516,14 @@
                     <div class="flex items-center gap-2 border-t border-slate-800/80 pt-3 overflow-x-auto">
                         <span class="text-xs text-slate-400 font-semibold uppercase shrink-0">This Over:</span>
                         <div id="ch-over-balls" class="flex gap-1.5 items-center">
-                            <!-- Ball badges rendered here -->
+                            <!-- Ball badges -->
                         </div>
                     </div>
                 </div>
 
-                <!-- Batter & Bowler Live Tables -->
+                <!-- Batter & Bowler Tables -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Batters Table -->
+                    <!-- Batters -->
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
                         <h4 class="text-xs font-bold text-jpl-gold uppercase tracking-wider flex items-center gap-2">
                             <i class="fa-solid fa-cricket-bat-ball"></i> Batting Card
@@ -540,7 +547,7 @@
                         </div>
                     </div>
 
-                    <!-- Bowler Table -->
+                    <!-- Bowler -->
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
                         <h4 class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
                             <i class="fa-solid fa-baseball"></i> Bowling Card
@@ -565,7 +572,7 @@
                     </div>
                 </div>
 
-                <!-- Ball-by-ball Feed -->
+                <!-- Commentary Feed -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Commentary Feed</h4>
                     <div id="ch-commentary-feed" class="space-y-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
@@ -584,11 +591,30 @@
             </div>
 
             <div id="fixtures-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Dynamically rendered or empty state -->
+                <!-- Dynamically rendered -->
             </div>
         </section>
 
-        <!-- ================= 5. HALL OF FAME ================= -->
+        <!-- ================= 5. MEMORY CORNER (PHOTO GALLERY) ================= -->
+        <section id="sec-memory" class="hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold text-amber-400 uppercase tracking-widest"><i class="fa-solid fa-camera mr-1"></i> Historic Highlights</span>
+                    <h2 class="text-4xl font-heading font-bold text-white">TOURNAMENT MEMORY CORNER</h2>
+                    <p class="text-xs text-slate-400">Capturing unforgettable moments, team celebrations, and match highlights.</p>
+                </div>
+                <span class="text-xs bg-slate-800 border border-slate-700 text-amber-300 px-3 py-1.5 rounded-full font-bold">
+                    <i class="fa-solid fa-lock text-[10px] mr-1"></i> Admin Managed Corner
+                </span>
+            </div>
+
+            <!-- Photos Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- ================= 6. HALL OF FAME ================= -->
         <section id="sec-past-seasons" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4">
                 <span class="text-xs font-bold text-jpl-gold uppercase tracking-widest">JPL Heritage</span>
@@ -601,7 +627,7 @@
             </div>
         </section>
 
-        <!-- ================= 6. COMMITTEE ================= -->
+        <!-- ================= 7. COMMITTEE ================= -->
         <section id="sec-committee" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4">
                 <span class="text-xs font-bold text-jpl-gold uppercase tracking-widest">Tournament Board</span>
@@ -614,7 +640,7 @@
             </div>
         </section>
 
-        <!-- ================= 7. ADMIN CONTROL PANEL ================= -->
+        <!-- ================= 8. ADMIN CONTROL PANEL ================= -->
         <section id="sec-admin" class="hidden space-y-8">
             <!-- ADMIN PIN GATEKEEPER -->
             <div id="admin-pin-screen" class="max-w-md mx-auto bg-jpl-card border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
@@ -623,27 +649,28 @@
                         <i class="fa-solid fa-user-shield"></i>
                     </div>
                     <h2 class="text-3xl font-heading font-bold text-white">ADMIN PORTAL ACCESS</h2>
-                    <p class="text-xs text-slate-400">Enter Security PIN to unlock management controls.</p>
+                    <p class="text-xs text-slate-400">Enter Security PIN to unlock full management & deletion controls.</p>
                 </div>
 
                 <form id="form-admin-pin" onsubmit="verifyAdminPin(); return false;" class="space-y-4">
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Admin Security PIN</label>
-                        <input type="password" id="admin-pin-input" placeholder="Enter PIN" maxlength="12" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3 text-center text-2xl font-mono text-jpl-gold focus:outline-none">
+                        <input type="password" id="admin-pin-input" placeholder="Enter Security PIN" maxlength="12" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3 text-center text-2xl font-mono text-jpl-gold focus:outline-none">
                     </div>
                     <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2">
                         Unlock Admin Panel <i class="fa-solid fa-lock-open"></i>
                     </button>
                 </form>
                 <div id="admin-pin-error" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold text-center"></div>
+                <p class="text-[11px] text-center text-slate-500">Default PIN: <code class="text-jpl-gold font-mono">22902276</code></p>
             </div>
 
-            <!-- UNLOCKED ADMIN DASHBOARD CONTAINER -->
+            <!-- UNLOCKED ADMIN DASHBOARD -->
             <div id="admin-dashboard-view" class="hidden space-y-8">
                 <!-- Header -->
                 <div class="bg-jpl-card border border-slate-800 rounded-2xl p-4 md:p-6 flex flex-wrap items-center justify-between gap-4">
                     <div>
-                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Admin Session Active</span>
+                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Admin Superuser Active</span>
                         <h2 class="text-3xl font-heading font-bold text-white">ADMIN CONTROL CENTER</h2>
                     </div>
                     <button onclick="lockAdminPanel()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold hover:bg-rose-500/20 hover:text-rose-400 transition-all flex items-center gap-2">
@@ -653,20 +680,23 @@
 
                 <!-- Sub-nav Tabs -->
                 <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
-                    <button onclick="switchAdminTab('otps')" id="admin-tab-otps" class="admin-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                    <button onclick="switchAdminTab('otps')" id="admin-tab-otps" class="admin-tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
                         <i class="fa-solid fa-key mr-1"></i> Passcodes
                     </button>
-                    <button onclick="switchAdminTab('roster')" id="admin-tab-roster" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                    <button onclick="switchAdminTab('roster')" id="admin-tab-roster" class="admin-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
                         <i class="fa-solid fa-id-badge mr-1"></i> Player Roster
                     </button>
-                    <button onclick="switchAdminTab('scorer')" id="admin-tab-scorer" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                    <button onclick="switchAdminTab('scorer')" id="admin-tab-scorer" class="admin-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
                         <i class="fa-solid fa-tower-broadcast mr-1"></i> Scorer Console
                     </button>
-                    <button onclick="switchAdminTab('fixtures-mgr')" id="admin-tab-fixtures-mgr" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                    <button onclick="switchAdminTab('fixtures-mgr')" id="admin-tab-fixtures-mgr" class="admin-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
                         <i class="fa-solid fa-calendar-plus mr-1"></i> Fixtures
                     </button>
-                    <button onclick="switchAdminTab('settings')" id="admin-tab-settings" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
-                        <i class="fa-solid fa-sliders mr-1"></i> Settings & History
+                    <button onclick="switchAdminTab('memory-mgr')" id="admin-tab-memory-mgr" class="admin-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all text-amber-300">
+                        <i class="fa-solid fa-images mr-1"></i> Memory Corner
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="admin-tab-settings" class="admin-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-sliders mr-1"></i> Logo & Settings
                     </button>
                 </div>
 
@@ -735,15 +765,20 @@
                     </div>
                 </div>
 
-                <!-- SUB-TAB 3: CRICHEROES LIVE SCORER CONSOLE -->
+                <!-- SUB-TAB 3: LIVE SCORER CONSOLE -->
                 <div id="admin-sub-scorer" class="hidden space-y-6">
                     <!-- Setup -->
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-2">
-                            <h3 class="text-xl font-heading font-bold text-white">Match Setup & Control</h3>
-                            <button onclick="toggleMatchLiveStatus()" id="btn-toggle-match-status" class="px-4 py-1.5 rounded-xl text-xs font-bold uppercase transition-all bg-emerald-600 text-white">
-                                Launch Match
-                            </button>
+                            <h3 class="text-xl font-heading font-bold text-white">Match Setup & Controls</h3>
+                            <div class="flex gap-2">
+                                <button onclick="resetMatchData()" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-800 hover:bg-rose-500/20 text-rose-400 border border-slate-700">
+                                    <i class="fa-solid fa-rotate-right mr-1"></i> Reset Score Data
+                                </button>
+                                <button onclick="toggleMatchLiveStatus()" id="btn-toggle-match-status" class="px-4 py-1.5 rounded-xl text-xs font-bold uppercase transition-all bg-emerald-600 text-white">
+                                    Launch Match
+                                </button>
+                            </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             <div>
@@ -761,7 +796,7 @@
                         </div>
                     </div>
 
-                    <!-- CricHeroes Control Pad -->
+                    <!-- Control Pad -->
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-6">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                             <h3 class="text-xl font-heading font-bold text-white">Ball-by-Ball Scoring Pad</h3>
@@ -826,8 +861,70 @@
                     </div>
                 </div>
 
-                <!-- SUB-TAB 5: SETTINGS & HISTORY -->
+                <!-- SUB-TAB 5: MEMORY CORNER / GALLERY MANAGER -->
+                <div id="admin-sub-memory-mgr" class="hidden space-y-6">
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Upload Photo to Memory Corner</h3>
+                        <form id="form-add-gallery" onsubmit="addGalleryPhoto(); return false;" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Photo Title *</label>
+                                <input type="text" id="gal-title" required placeholder="e.g. Season Trophy Unveiling" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Category</label>
+                                <select id="gal-category" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                                    <option value="Celebrations">Celebrations</option>
+                                    <option value="Match Action">Match Action</option>
+                                    <option value="Trophy & Honors">Trophy & Honors</option>
+                                    <option value="Team Moments">Team Moments</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Upload Photo File</label>
+                                <input type="file" id="gal-file" accept="image/*" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">OR Image Web URL</label>
+                                <input type="url" id="gal-url" placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Description / Caption</label>
+                                <input type="text" id="gal-desc" placeholder="Brief note about this memory" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider">
+                                    Publish Memory Photo
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- SUB-TAB 6: LOGO & SETTINGS -->
                 <div id="admin-sub-settings" class="hidden space-y-8">
+                    <!-- Dynamic Logo Manager -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Website Logo Settings</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Upload Logo Image File</label>
+                                <input type="file" id="admin-logo-file" accept="image/*" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-400 focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">OR Paste Logo URL</label>
+                                <input type="url" id="admin-logo-url" placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2 flex gap-3">
+                                <button onclick="saveWebsiteLogo()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider">
+                                    Save Website Logo
+                                </button>
+                                <button onclick="resetWebsiteLogo()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs">
+                                    Reset to Default
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Dynamic Season Switcher -->
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                         <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Tournament Season Configuration</h3>
@@ -920,7 +1017,7 @@
                     <i class="fa-solid fa-circle-check"></i>
                 </div>
                 <h3 class="text-3xl font-heading font-bold text-white">REGISTRATION CONFIRMED!</h3>
-                <p class="text-xs text-slate-400" id="receipt-season-subtitle">Junior Premier League Official Player Pass</p>
+                <p class="text-xs text-slate-400">Junior Premier League Official Player Pass</p>
             </div>
 
             <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3 font-mono text-xs">
@@ -962,6 +1059,7 @@
         const ADMIN_PIN = "22902276";
 
         let appState = {
+            customLogo: localStorage.getItem('jpl_logo') || null,
             activeSeason: localStorage.getItem('jpl_season') || 'Season 7',
             registrationActive: localStorage.getItem('jpl_reg_active') !== 'false',
             isAdminUnlocked: false,
@@ -973,6 +1071,7 @@
             committee: JSON.parse(localStorage.getItem('jpl_committee')) || [],
             pastSeasons: JSON.parse(localStorage.getItem('jpl_past_seasons')) || [],
             fixtures: JSON.parse(localStorage.getItem('jpl_fixtures')) || [],
+            gallery: JSON.parse(localStorage.getItem('jpl_gallery')) || [],
             liveMatch: JSON.parse(localStorage.getItem('jpl_live_match')) || {
                 isMatchLive: false,
                 teamA: 'Team Alpha',
@@ -999,18 +1098,21 @@
         };
 
         document.addEventListener('DOMContentLoaded', () => {
+            applyWebsiteLogo();
             applyActiveSeasonBranding();
             checkUrlQueryParams();
             updateStatsCounters();
             renderCommittee();
             renderPastSeasons();
             renderFixtures();
+            renderGallery();
             renderAdminOTPs();
             renderAdminRoster();
             updateLiveMatchUI();
         });
 
         function saveState() {
+            localStorage.setItem('jpl_logo', appState.customLogo || '');
             localStorage.setItem('jpl_season', appState.activeSeason);
             localStorage.setItem('jpl_reg_active', appState.registrationActive);
             localStorage.setItem('jpl_otps', JSON.stringify(appState.otps));
@@ -1018,8 +1120,54 @@
             localStorage.setItem('jpl_committee', JSON.stringify(appState.committee));
             localStorage.setItem('jpl_past_seasons', JSON.stringify(appState.pastSeasons));
             localStorage.setItem('jpl_fixtures', JSON.stringify(appState.fixtures));
+            localStorage.setItem('jpl_gallery', JSON.stringify(appState.gallery));
             localStorage.setItem('jpl_live_match', JSON.stringify(appState.liveMatch));
             updateStatsCounters();
+        }
+
+        // LOGO ENGINE
+        function applyWebsiteLogo() {
+            const fallback = document.getElementById('app-logo-fallback');
+            const img = document.getElementById('app-logo-img');
+            if (appState.customLogo) {
+                img.src = appState.customLogo;
+                img.classList.remove('hidden');
+                fallback.classList.add('hidden');
+            } else {
+                img.src = '';
+                img.classList.add('hidden');
+                fallback.classList.remove('hidden');
+            }
+        }
+
+        function saveWebsiteLogo() {
+            const fileInput = document.getElementById('admin-logo-file');
+            const urlInput = document.getElementById('admin-logo-url').value.trim();
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    appState.customLogo = e.target.result;
+                    saveState();
+                    applyWebsiteLogo();
+                    alert("Website logo updated from image file!");
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else if (urlInput) {
+                appState.customLogo = urlInput;
+                saveState();
+                applyWebsiteLogo();
+                alert("Website logo updated from URL!");
+            } else {
+                alert("Please select an image file or paste a URL.");
+            }
+        }
+
+        function resetWebsiteLogo() {
+            appState.customLogo = null;
+            saveState();
+            applyWebsiteLogo();
+            alert("Website logo reset to default!");
         }
 
         function applyActiveSeasonBranding() {
@@ -1195,6 +1343,80 @@
             if (tabBtn) tabBtn.classList.add('bg-jpl-gold', 'text-slate-950');
         }
 
+        // GALLERY / MEMORY CORNER LOGIC
+        function addGalleryPhoto() {
+            const title = document.getElementById('gal-title').value.trim();
+            const category = document.getElementById('gal-category').value;
+            const desc = document.getElementById('gal-desc').value.trim() || 'Tournament Moment';
+            const fileInput = document.getElementById('gal-file');
+            const urlInput = document.getElementById('gal-url').value.trim();
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    appState.gallery.push({ id: Date.now(), title, category, desc, src: e.target.result });
+                    saveState();
+                    renderGallery();
+                    document.getElementById('form-add-gallery').reset();
+                    alert("Memory photo added!");
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else if (urlInput) {
+                appState.gallery.push({ id: Date.now(), title, category, desc, src: urlInput });
+                saveState();
+                renderGallery();
+                document.getElementById('form-add-gallery').reset();
+                alert("Memory photo added!");
+            } else {
+                alert("Please upload a photo file or paste an image URL.");
+            }
+        }
+
+        function deleteGalleryPhoto(id) {
+            if (!confirm("Delete this memory photo card?")) return;
+            appState.gallery = appState.gallery.filter(g => g.id !== id);
+            saveState();
+            renderGallery();
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('gallery-grid');
+            grid.innerHTML = '';
+
+            if (appState.gallery.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full bg-jpl-card border border-slate-800 rounded-3xl p-12 text-center text-slate-500">
+                        <i class="fa-solid fa-images text-4xl mb-3 block text-amber-500/40"></i>
+                        No Memory Photos Uploaded Yet. Admin can upload photos from the Admin Panel.
+                    </div>
+                `;
+                return;
+            }
+
+            appState.gallery.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden shadow-lg space-y-3 relative group";
+                card.innerHTML = `
+                    <div class="relative h-48 overflow-hidden bg-slate-900">
+                        <img src="${item.src}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-3 left-3 text-[10px] bg-slate-900/90 text-amber-300 px-2.5 py-1 rounded-full font-bold uppercase border border-amber-500/30">
+                            ${item.category}
+                        </span>
+                        ${appState.isAdminUnlocked ? `
+                            <button onclick="deleteGalleryPhoto(${item.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-rose-600/90 text-white flex items-center justify-center text-xs hover:bg-rose-500 transition-colors shadow">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        ` : ''}
+                    </div>
+                    <div class="p-4 space-y-1">
+                        <h4 class="text-base font-bold text-white">${item.title}</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">${item.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
         function generateNewOTP() {
             const customInput = document.getElementById('admin-custom-otp').value.trim().toUpperCase();
             let newCode = customInput;
@@ -1205,6 +1427,13 @@
 
             appState.otps.push({ code: newCode, status: 'ACTIVE' });
             document.getElementById('admin-custom-otp').value = '';
+            saveState();
+            renderAdminOTPs();
+        }
+
+        function deleteOTP(code) {
+            if (!confirm(`Revoke/Delete passcode ${code}?`)) return;
+            appState.otps = appState.otps.filter(o => o.code !== code);
             saveState();
             renderAdminOTPs();
         }
@@ -1222,9 +1451,12 @@
                             otp.status === 'ACTIVE' ? 'bg-emerald-500/10 text-emerald-400' : 'bg-slate-800 text-slate-400'
                         }">${otp.status}</span>
                     </td>
-                    <td class="p-4 text-right">
+                    <td class="p-4 text-right flex justify-end gap-2">
                         <button onclick="copyInviteLink('${otp.code}')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-[10px] font-bold">
                             <i class="fa-solid fa-copy mr-1"></i> Copy Link
+                        </button>
+                        <button onclick="deleteOTP('${otp.code}')" class="px-2.5 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded-lg text-[10px] font-bold border border-rose-500/30">
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                     </td>
                 `;
@@ -1310,6 +1542,13 @@
             alert("Match fixture added!");
         }
 
+        function deleteFixture(id) {
+            if (!confirm("Delete this match fixture?")) return;
+            appState.fixtures = appState.fixtures.filter(f => f.id !== id);
+            saveState();
+            renderFixtures();
+        }
+
         function renderFixtures() {
             const grid = document.getElementById('fixtures-grid');
             grid.innerHTML = '';
@@ -1326,11 +1565,18 @@
 
             appState.fixtures.forEach(f => {
                 const card = document.createElement('div');
-                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4";
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4 relative group";
                 card.innerHTML = `
                     <div class="flex justify-between border-b border-slate-800 pb-2">
                         <span class="text-xs font-bold text-jpl-gold uppercase">${f.stage}</span>
-                        <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> ${f.datetime}</span>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-slate-400"><i class="fa-solid fa-clock mr-1"></i> ${f.datetime}</span>
+                            ${appState.isAdminUnlocked ? `
+                                <button onclick="deleteFixture(${f.id})" class="text-rose-400 hover:text-rose-300 text-xs ml-2">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            ` : ''}
+                        </div>
                     </div>
                     <div class="flex items-center justify-between py-2 text-xl font-bold text-white">
                         <span>${f.teamA}</span>
@@ -1355,6 +1601,13 @@
             document.getElementById('form-add-committee').reset();
         }
 
+        function deleteCommitteeMember(id) {
+            if (!confirm("Delete committee member?")) return;
+            appState.committee = appState.committee.filter(c => c.id !== id);
+            saveState();
+            renderCommittee();
+        }
+
         function renderCommittee() {
             const grid = document.getElementById('committee-grid');
             grid.innerHTML = '';
@@ -1364,8 +1617,13 @@
             }
             appState.committee.forEach(c => {
                 const card = document.createElement('div');
-                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-5 text-center space-y-2";
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-5 text-center space-y-2 relative group";
                 card.innerHTML = `
+                    ${appState.isAdminUnlocked ? `
+                        <button onclick="deleteCommitteeMember(${c.id})" class="absolute top-2 right-2 text-rose-400 hover:text-rose-300 text-xs">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    ` : ''}
                     <img src="${c.photo}" alt="${c.name}" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-jpl-gold/40">
                     <div class="text-base font-bold text-white">${c.name}</div>
                     <div class="text-xs text-jpl-gold font-semibold uppercase">${c.role}</div>
@@ -1380,10 +1638,17 @@
             const champion = document.getElementById('past-champion').value.trim();
             const runnerup = document.getElementById('past-runnerup').value.trim() || 'N/A';
 
-            appState.pastSeasons.push({ season, champion, runnerup });
+            appState.pastSeasons.push({ id: Date.now(), season, champion, runnerup });
             saveState();
             renderPastSeasons();
             document.getElementById('form-add-past-season').reset();
+        }
+
+        function deletePastSeason(id) {
+            if (!confirm("Delete past season record?")) return;
+            appState.pastSeasons = appState.pastSeasons.filter(s => s.id !== id);
+            saveState();
+            renderPastSeasons();
         }
 
         function renderPastSeasons() {
@@ -1395,9 +1660,16 @@
             }
             appState.pastSeasons.forEach(s => {
                 const card = document.createElement('div');
-                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-3";
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-3 relative group";
                 card.innerHTML = `
-                    <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">${s.season}</h3>
+                    <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                        <h3 class="text-xl font-heading font-bold text-white">${s.season}</h3>
+                        ${appState.isAdminUnlocked ? `
+                            <button onclick="deletePastSeason(${s.id})" class="text-rose-400 hover:text-rose-300 text-xs">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        ` : ''}
+                    </div>
                     <div class="text-xs space-y-1">
                         <div class="flex justify-between"><span class="text-slate-400">CHAMPIONS:</span><span class="text-jpl-gold font-bold">${s.champion}</span></div>
                         <div class="flex justify-between"><span class="text-slate-400">Runners-Up:</span><span class="text-slate-200">${s.runnerup}</span></div>
@@ -1407,7 +1679,37 @@
             });
         }
 
-        // LIVE SCORER ENGINE
+        // LIVE SCORER ENGINE & RESET
+        function resetMatchData() {
+            if (!confirm("Reset and clear all current live match score data?")) return;
+            appState.liveMatch = {
+                isMatchLive: false,
+                teamA: 'Team Alpha',
+                teamB: 'Team Strikers',
+                runs: 0,
+                wickets: 0,
+                overs: 0,
+                balls: 0,
+                maxOvers: 10,
+                extras: 0,
+                striker: 'Striker 1',
+                strikerRuns: 0,
+                strikerBalls: 0,
+                nonStriker: 'Striker 2',
+                nonStrikerRuns: 0,
+                nonStrikerBalls: 0,
+                bowler: 'Bowler 1',
+                bowlerOvers: '0.0',
+                bowlerRuns: 0,
+                bowlerWickets: 0,
+                thisOver: [],
+                commentary: []
+            };
+            saveState();
+            updateLiveMatchUI();
+            alert("Match data reset successfully.");
+        }
+
         function toggleMatchLiveStatus() {
             let lm = appState.liveMatch;
             lm.isMatchLive = !lm.isMatchLive;
@@ -1509,24 +1811,20 @@
             document.getElementById('btn-toggle-match-status').innerText = "End Match";
             document.getElementById('btn-toggle-match-status').className = "px-4 py-1.5 rounded-xl text-xs font-bold uppercase bg-rose-600 text-white";
 
-            // Update CricHeroes elements
             document.getElementById('ch-batting-team').innerText = lm.teamA;
             document.getElementById('ch-bowling-team').innerText = lm.teamB;
             document.getElementById('ch-score-display').innerText = `${lm.runs} / ${lm.wickets}`;
             document.getElementById('ch-overs-display').innerText = `Overs: ${lm.overs}.${lm.balls} / ${lm.maxOvers}.0`;
             document.getElementById('ch-extras-display').innerText = `Extras: ${lm.extras}`;
 
-            // Home Teaser
             document.getElementById('home-match-title').innerText = `${lm.teamA} vs ${lm.teamB}`;
             document.getElementById('home-batting-team').innerText = lm.teamA;
             document.getElementById('home-match-score').innerText = `${lm.runs} / ${lm.wickets}`;
             document.getElementById('home-match-overs').innerText = `Overs: ${lm.overs}.${lm.balls}`;
 
-            // Over Ball Ticker
             const ticker = document.getElementById('ch-over-balls');
             ticker.innerHTML = lm.thisOver.map(b => `<span class="px-2 py-1 rounded bg-slate-800 text-xs font-mono font-bold text-jpl-gold border border-slate-700">${b}</span>`).join('');
 
-            // Batters Table
             document.getElementById('ch-batters-table').innerHTML = `
                 <tr class="border-b border-slate-800">
                     <td class="p-2 font-bold text-white">* ${lm.striker}</td>
@@ -1546,7 +1844,6 @@
                 </tr>
             `;
 
-            // Commentary Feed
             document.getElementById('ch-commentary-feed').innerHTML = lm.commentary.map(c => `
                 <div class="bg-slate-900/60 p-2 rounded border border-slate-800 text-xs text-slate-300"><i class="fa-solid fa-angle-right text-jpl-gold mr-1"></i> ${c}</div>
             `).join('');
@@ -1554,7 +1851,7 @@
 
         function updateStatsCounters() {
             document.getElementById('home-stat-players').innerText = appState.players.length;
-            document.getElementById('home-stat-fixtures').innerText = appState.fixtures.length;
+            document.getElementById('home-stat-gallery').innerText = appState.gallery.length;
             document.getElementById('home-stat-otps').innerText = appState.otps.length;
         }
     </script>
