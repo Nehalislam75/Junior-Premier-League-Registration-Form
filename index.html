@@ -1,1031 +1,1129 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta name="google-site-verification" content="LdS66Yycjvar13W9mDgRji93HGexNfi1L_HK_Wd6BUI" />
-  <!-- ব্রাউজারে ও গুগল সার্চে এই নামটি টাইটেল হিসেবে দেখাবে -->
-  <title>JPL Registration Form | Official Portal</title>
-
-  <!-- গুগল সার্চের নিচে ছোট যে বিবরণ থাকে তার জন্য -->
-  <meta name="description" content="Official registration form for Junior Premier League (JPL) Season 7. Register your team and player details online.">
-  <meta name="keywords" content="JPL, Junior Premier League, JPL Registration, JPL Season 7">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Junior Premier League (JPL) Season 7 - Official Portal</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         jpl: {
-                            gold: '#FFB800',
-                            goldHover: '#E5A600',
-                            navy: '#0A0F1D',
-                            darkNavy: '#050811',
-                            cyan: '#00F0FF',
-                            accent: '#141E36',
-                            cardBg: '#0F172A',
-                            emerald: '#10B981',
-                            rose: '#F43F5E'
+                            navy: '#0b132b',
+                            dark: '#1c2541',
+                            blue: '#3a506b',
+                            gold: '#f7b801',
+                            accent: '#f72585',
+                            card: '#151d36',
+                            emerald: '#10b981'
                         }
                     },
                     fontFamily: {
-                        sports: ['Rajdhani', 'sans-serif'],
-                        sans: ['Outfit', 'sans-serif']
+                        heading: ['Teko', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
                     }
                 }
             }
         }
     </script>
     <style>
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050811;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #141E36;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFB800;
-        }
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 184, 0, 0.15);
-        }
         .jersey-shadow {
-            filter: drop-shadow(0px 18px 20px rgba(0, 0, 0, 0.6));
+            box-shadow: 0 15px 35px -5px rgba(247, 184, 1, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
         }
-        .jersey-texture {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 8px 8px;
+        .bg-pattern {
+            background-color: #0b132b;
+            background-image: radial-gradient(#3a506b 0.75px, transparent 0.75px), radial-gradient(#3a506b 0.75px, #0b132b 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
         }
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-            #printable-modal, #printable-modal * {
-                visibility: visible;
-            }
-            #printable-modal {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                background: #fff !important;
-                color: #000 !important;
-            }
-            .no-print {
-                display: none !important;
-            }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1c2541;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #f7b801;
+            border-radius: 3px;
         }
     </style>
 </head>
-<body class="bg-jpl-darkNavy text-slate-100 font-sans min-h-screen antialiased bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-jpl-accent via-jpl-darkNavy to-black pb-12 selection:bg-jpl-gold selection:text-jpl-darkNavy">
+<body class="bg-pattern text-slate-100 font-sans min-h-screen flex flex-col custom-scrollbar">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-gradient-to-r from-jpl-navy via-jpl-gold to-jpl-navy text-slate-950 font-extrabold py-2 text-center text-xs tracking-widest uppercase shadow-md relative z-20 flex items-center justify-center gap-2">
-        <i data-lucide="trophy" class="w-4 h-4 animate-bounce"></i>
-        <span>Junior Premier League Season 7 • Official Tournament Portal</span>
+    <!-- Top Ticker Bar -->
+    <div class="bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 text-slate-950 font-semibold text-xs md:text-sm py-1 px-4 text-center tracking-wider uppercase flex items-center justify-center gap-2 shadow-md z-50">
+        <i class="fa-solid fa-trophy animate-bounce text-slate-900"></i>
+        <span>Junior Premier League Season 7 • Official Tournament Portal & Live Score Hub</span>
     </div>
 
-    <!-- Main Container -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-
-        <!-- Top Header Navigation -->
-        <header class="flex flex-col md:flex-row items-center justify-between gap-4 py-4 mb-6 border-b border-slate-800/80">
-            <div class="flex items-center space-x-3 text-center md:text-left">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-jpl-gold to-amber-200 text-slate-950 flex items-center justify-center font-sports text-3xl font-extrabold shadow-lg shadow-jpl-gold/10">
-                    J7
-                </div>
-                <div>
-                    <h1 class="text-2xl font-sports tracking-wider text-white uppercase leading-none font-bold">Junior Premier League</h1>
-                    <span class="text-xs text-jpl-gold font-mono tracking-widest">SEASON 7 • OFFICIAL REGISTRATION</span>
-                </div>
-            </div>
-
-            <!-- Portal Mode Switcher -->
-            <div class="flex bg-jpl-navy p-1.5 rounded-xl border border-slate-700/80 shadow-inner">
-                <button id="tab-player" onclick="switchView('player')" 
-                    class="px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 bg-jpl-gold text-slate-950 shadow-md">
-                    <i data-lucide="user-check" class="w-4 h-4"></i>
-                    <span>Player Portal</span>
-                </button>
-                <button id="tab-admin" onclick="switchView('admin')" 
-                    class="px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 text-slate-400 hover:text-white">
-                    <i data-lucide="shield-check" class="w-4 h-4"></i>
-                    <span>Admin Control Center</span>
-                </button>
-            </div>
-        </header>
-
-        <!-- Toast Notifications Container -->
-        <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
-
-        <!-- ==================================================================== -->
-        <!-- VIEW 1: PLAYER PORTAL                                                -->
-        <!-- ==================================================================== -->
-        <div id="view-player" class="space-y-8">
-            
-            <!-- STEP 1: OTP GATEKEEPER SCREEN -->
-            <div id="otp-gatekeeper" class="max-w-md mx-auto my-8">
-                <div class="glass-panel rounded-2xl p-6 sm:p-8 text-center space-y-6 border border-jpl-gold/30 shadow-2xl relative overflow-hidden">
-                    <div class="w-16 h-16 bg-jpl-gold/10 border border-jpl-gold/40 rounded-2xl flex items-center justify-center mx-auto text-jpl-gold shadow-lg">
-                        <i data-lucide="key-round" class="w-8 h-8"></i>
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-jpl-navy/95 backdrop-blur-md border-b border-slate-800 shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
+                    <div class="w-12 h-12 bg-gradient-to-br from-jpl-gold to-amber-600 rounded-xl flex items-center justify-center shadow-lg shadow-amber-500/20 transform -rotate-3 hover:rotate-0 transition-transform">
+                        <i class="fa-solid fa-cricket-bat-ball text-2xl text-slate-950"></i>
                     </div>
-
                     <div>
-                        <h2 class="text-2xl font-sports font-bold tracking-wider text-white uppercase">Access Passcode Required</h2>
-                        <p class="text-xs text-slate-400 mt-1">Please enter the 6-character registration passcode provided by the JPL Season 7 organizer.</p>
+                        <span class="font-heading text-3xl font-bold tracking-wider leading-none block text-white">JPL <span class="text-jpl-gold">SEASON 7</span></span>
+                        <span class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold">Junior Premier League</span>
                     </div>
+                </div>
 
-                    <!-- FORM WRAPPER FOR ENTER KEY SUPPORT -->
-                    <form id="otp-form" onsubmit="handleOtpSubmit(event)" class="space-y-4">
-                        <div class="space-y-2">
-                            <div class="relative">
-                                <input type="text" id="otp-input" placeholder="e.g. JPL7-89A2" autocomplete="off"
-                                    class="w-full text-center tracking-widest text-xl font-mono py-3.5 px-4 bg-jpl-darkNavy border-2 border-slate-700 rounded-xl focus:border-jpl-gold focus:ring-2 focus:ring-jpl-gold/20 text-jpl-gold uppercase outline-none font-bold transition-all">
-                            </div>
-                            <p id="otp-error" class="text-xs text-jpl-rose font-medium hidden flex items-center justify-center gap-1">
-                                <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
-                                <span id="otp-error-text">Invalid or expired access passcode.</span>
-                            </p>
-                        </div>
+                <!-- Navigation Links -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn active px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i> Home
+                    </button>
+                    <button onclick="switchTab('register')" id="nav-register" class="nav-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-user-plus"></i> Register
+                    </button>
+                    <button onclick="switchTab('live')" id="nav-live" class="nav-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2 text-rose-400">
+                        <i class="fa-solid fa-circle text-[10px] animate-pulse"></i> Live Score
+                    </button>
+                    <button onclick="switchTab('past-seasons')" id="nav-past-seasons" class="nav-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-award"></i> Hall of Fame
+                    </button>
+                    <button onclick="switchTab('committee')" id="nav-committee" class="nav-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-users-gear"></i> Committee
+                    </button>
+                    <button onclick="switchTab('admin')" id="nav-admin" class="nav-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all flex items-center gap-2 bg-slate-800/80 text-jpl-gold hover:bg-slate-700">
+                        <i class="fa-solid fa-shield-halved"></i> Admin Panel
+                    </button>
+                </div>
 
-                        <button type="submit" 
-                            class="w-full py-3.5 px-6 bg-gradient-to-r from-jpl-gold to-amber-400 hover:from-amber-400 hover:to-jpl-gold text-slate-950 font-sports text-xl uppercase tracking-widest font-extrabold rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2 cursor-pointer">
-                            <span>Verify Passcode</span>
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-jpl-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold">
+                <i class="fa-solid fa-house text-jpl-gold"></i> Home
+            </button>
+            <button onclick="switchTab('register'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold">
+                <i class="fa-solid fa-user-plus text-jpl-gold"></i> Register Player
+            </button>
+            <button onclick="switchTab('live'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold text-rose-400">
+                <i class="fa-solid fa-circle text-[10px] animate-pulse"></i> Live Match Center
+            </button>
+            <button onclick="switchTab('past-seasons'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold">
+                <i class="fa-solid fa-award text-jpl-gold"></i> Hall of Fame & Past Seasons
+            </button>
+            <button onclick="switchTab('committee'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold">
+                <i class="fa-solid fa-users-gear text-jpl-gold"></i> Organizing Committee
+            </button>
+            <button onclick="switchTab('admin'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-jpl-gold bg-slate-800/50 hover:bg-slate-800 flex items-center gap-3 font-semibold">
+                <i class="fa-solid fa-shield-halved"></i> Admin Control Panel
+            </button>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- ================= SECTION 1: HOME PAGE ================= -->
+        <section id="sec-home" class="space-y-12">
+            <!-- Hero Banner -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-jpl-dark via-jpl-navy to-slate-900 border border-slate-800 shadow-2xl p-8 md:p-12">
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-slate-100 font-heading text-[280px] font-extrabold select-none pointer-events-none">JPL7</div>
+                <div class="relative z-10 max-w-2xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jpl-gold/10 border border-jpl-gold/30 text-jpl-gold text-xs font-bold uppercase tracking-widest">
+                        <i class="fa-solid fa-bolt"></i> Ultimate Cricket Extravaganza
+                    </div>
+                    <h1 class="font-heading text-5xl md:text-7xl font-bold tracking-tight text-white leading-none">
+                        JUNIOR PREMIER LEAGUE <span class="text-jpl-gold">SEASON 7</span>
+                    </h1>
+                    <p class="text-slate-300 text-base md:text-lg leading-relaxed">
+                        Welcome to the official portal of JPL Season 7! Register your squad profile, track live scores, manage match fixtures, and explore our rich tournament heritage.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('register')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-base hover:shadow-lg hover:shadow-amber-500/25 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-id-card"></i> Register Now
                         </button>
-                    </form>
+                        <button onclick="switchTab('live')" class="px-6 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-base hover:bg-slate-700 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-tower-broadcast text-rose-500"></i> Live Scorecard
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-                    <p class="text-[11px] text-slate-500 pt-2 border-t border-slate-800">
-                        Press <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-[10px]">Enter</kbd> to submit. Need an access passcode? Contact your manager.
+            <!-- Quick Stats & Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-amber-500/10 text-jpl-gold flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="text-3xl font-heading font-bold text-white" id="home-stat-players">0</div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Registered Players</div>
+                </div>
+
+                <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-trophy"></i>
+                    </div>
+                    <div class="text-3xl font-heading font-bold text-white">7th</div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Glorious Season</div>
+                </div>
+
+                <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <div class="text-3xl font-heading font-bold text-white" id="home-stat-otps">0</div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Generated Passcodes</div>
+                </div>
+
+                <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center hover:border-slate-700 transition-colors">
+                    <div class="w-12 h-12 mx-auto mb-3 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-circle-dot animate-pulse"></i>
+                    </div>
+                    <div class="text-3xl font-heading font-bold text-white" id="home-stat-status">ACTIVE</div>
+                    <div class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Match Status</div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Highlights -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Live Score Teaser Card -->
+                <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
+                                <i class="fa-solid fa-tower-broadcast animate-pulse mr-1"></i> Live Action
+                            </span>
+                            <span class="text-xs text-slate-400" id="home-match-overs">Overs: 0.0</span>
+                        </div>
+                        <div class="space-y-2">
+                            <h3 class="text-2xl font-heading font-bold text-white" id="home-match-title">No Active Match Right Now</h3>
+                            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div>
+                                    <div class="text-xs text-slate-400 font-semibold">BATTING TEAM</div>
+                                    <div class="text-xl font-bold text-white" id="home-batting-team">--</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-3xl font-heading font-extrabold text-jpl-gold" id="home-match-score">0 / 0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="switchTab('live')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        Open Match Hub <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Organizing Committee Teaser -->
+                <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold uppercase tracking-widest text-jpl-gold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                                <i class="fa-solid fa-users-gear mr-1"></i> Tournament Leadership
+                            </span>
+                            <span class="text-xs text-slate-400">JPL Board</span>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-white">Organizing Committee</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Meet the dedicated organizers, conveners, and management team working behind the scenes to make JPL Season 7 a grand success.
+                        </p>
+                    </div>
+                    <button onclick="switchTab('committee')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
+                        View Committee Members <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: REGISTRATION SECTION ================= -->
+        <section id="sec-register" class="hidden space-y-8">
+            <!-- TEASER VIEW: REGISTRATION COMING SOON -->
+            <div id="reg-coming-soon-view" class="hidden max-w-3xl mx-auto bg-jpl-card border border-amber-500/30 rounded-3xl p-8 md:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-jpl-gold to-amber-600 text-slate-950 flex items-center justify-center text-4xl shadow-xl shadow-amber-500/20 animate-bounce">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <div class="space-y-2">
+                    <span class="px-4 py-1.5 rounded-full bg-amber-500/10 text-jpl-gold border border-amber-500/30 text-xs font-bold uppercase tracking-widest">Official Notice</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-white">REGISTRATION COMING SOON!</h2>
+                    <p class="text-slate-300 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
+                        Player registration for **Junior Premier League (JPL) Season 7** is currently closed. Registration will officially start once unlocked by the tournament admin panel.
                     </p>
                 </div>
+                <div class="p-4 bg-slate-900/80 rounded-2xl border border-slate-800 max-w-md mx-auto text-xs text-slate-400 space-y-1">
+                    <div><i class="fa-solid fa-circle-info text-jpl-gold mr-1"></i> Received an invitation code?</div>
+                    <div>Passcode entries will open as soon as the Admin switches registration status to **ACTIVE**.</div>
+                </div>
             </div>
 
-            <!-- STEP 2: REGISTRATION FORM & LIVE JERSEY PREVIEW -->
-            <div id="registration-portal" class="hidden space-y-8">
-                
-                <!-- Access Verified Status Bar -->
-                <div class="bg-gradient-to-r from-emerald-950/80 via-jpl-navy to-jpl-navy border border-emerald-500/40 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-lg">
-                    <div class="flex items-center space-x-3">
-                        <span class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/40">
-                            <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-                        </span>
+            <!-- GATEKEEPER VIEW: OTP VERIFICATION -->
+            <div id="reg-gatekeeper-view" class="max-w-md mx-auto bg-jpl-card border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 text-jpl-gold flex items-center justify-center text-2xl shadow-inner">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h2 class="text-3xl font-heading font-bold text-white">ENTER INVITATION PASSCODE</h2>
+                    <p class="text-xs text-slate-400">
+                        Registration requires a one-time passcode issued by the tournament admin.
+                    </p>
+                </div>
+
+                <form id="form-otp-gatekeeper" onsubmit="verifyPasscode(); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Passcode (6 Characters)</label>
+                        <input type="text" id="otp-input" placeholder="e.g. JPL7-89A2" uppercase maxlength="9" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3.5 text-center text-xl font-mono font-bold tracking-widest text-jpl-gold focus:outline-none focus:ring-2 focus:ring-jpl-gold/20 uppercase transition-all">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-sm hover:shadow-lg hover:shadow-amber-500/25 transition-all flex items-center justify-center gap-2">
+                        Verify & Unlock Registration <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div id="otp-error-msg" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold text-center"></div>
+            </div>
+
+            <!-- MAIN REGISTRATION FORM (UNLOCKED) -->
+            <div id="reg-form-view" class="hidden space-y-8">
+                <!-- Verified Badge -->
+                <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold">
+                            <i class="fa-solid fa-shield-check"></i>
+                        </div>
                         <div>
-                            <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Verified Passcode Active</span>
-                            <span id="verified-code-badge" class="font-mono text-sm font-bold text-emerald-400">JPL7-89A2</span>
+                            <div class="text-xs text-emerald-400 font-bold uppercase tracking-wider">Passcode Verified</div>
+                            <div class="text-slate-200 text-sm font-mono font-bold" id="display-verified-code">JPL7-XXXX</div>
                         </div>
                     </div>
-                    <button type="button" onclick="lockPortal()" class="text-xs text-slate-400 hover:text-slate-200 underline cursor-pointer">
-                        Change Passcode
-                    </button>
+                    <span class="text-xs text-slate-400 bg-slate-900 px-3 py-1 rounded-full border border-slate-800">Single-Use Token</span>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
-                    <!-- Left: Interactive Live Jersey Preview Card (5 Cols) -->
-                    <div class="lg:col-span-5 lg:sticky lg:top-8 order-2 lg:order-1">
-                        <div class="glass-panel rounded-2xl p-6 relative overflow-hidden border border-jpl-gold/20 shadow-2xl">
-                            
-                            <div class="flex items-center justify-between border-b border-slate-700/60 pb-4 mb-6">
-                                <div class="flex items-center space-x-2">
-                                    <i data-lucide="shirt" class="w-5 h-5 text-jpl-gold"></i>
-                                    <h2 class="text-lg font-bold text-white tracking-wide uppercase">Live Kit Preview</h2>
-                                </div>
-                                <span class="text-xs bg-jpl-cyan/10 text-jpl-cyan border border-jpl-cyan/30 px-2.5 py-1 rounded-full font-mono flex items-center gap-1">
-                                    <span class="w-2 h-2 rounded-full bg-jpl-cyan animate-pulse"></span>
-                                    Live Sync
-                                </span>
-                            </div>
-
-                            <!-- Dynamic Jersey Card Graphic -->
-                            <div id="jersey-card" class="relative bg-gradient-to-br from-blue-950 via-jpl-navy to-slate-900 border border-slate-700/80 rounded-xl p-6 text-center shadow-2xl overflow-hidden min-h-[390px] flex flex-col justify-between jersey-shadow transition-all">
-                                <div class="absolute inset-0 jersey-texture opacity-30 pointer-events-none"></div>
-                                <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-jpl-gold via-amber-300 to-jpl-gold"></div>
-                                
-                                <div class="relative z-10 flex justify-between items-center">
-                                    <div class="text-left">
-                                        <span class="text-[10px] uppercase tracking-widest text-slate-400 block font-semibold">Tournament</span>
-                                        <span class="text-xs font-bold text-jpl-gold font-sports tracking-wider">JPL SEASON 7</span>
-                                    </div>
-                                    <div class="px-2.5 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-jpl-cyan/20 text-jpl-cyan border border-jpl-cyan/40">
-                                        OFFICIAL PLAYER
-                                    </div>
-                                </div>
-
-                                <div class="relative z-10 my-6 py-2">
-                                    <div id="preview-role-icon" class="text-jpl-cyan flex items-center justify-center mb-1 opacity-90">
-                                        <i data-lucide="swords" class="w-7 h-7"></i>
-                                    </div>
-                                    <div id="preview-jersey-number" class="text-7xl sm:text-8xl font-sports font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 leading-none">
-                                        07
-                                    </div>
-                                    <div id="preview-player-name" class="text-2xl sm:text-3xl font-sports tracking-widest text-jpl-gold uppercase mt-2 truncate font-bold">
-                                        PLAYER NAME
-                                    </div>
-                                    <div id="preview-player-role" class="text-xs font-semibold text-slate-300 uppercase tracking-widest mt-1">
-                                        ALL-ROUNDER
-                                    </div>
-                                </div>
-
-                                <div class="relative z-10 pt-3 border-t border-slate-700/60 flex justify-between items-center text-[11px] text-slate-400 font-mono">
-                                    <div>SIZE: <span id="preview-jersey-size" class="text-white font-bold">M</span></div>
-                                    <div>BAT: <span id="preview-batting-style" class="text-white font-bold">RIGHT</span></div>
-                                    <div>BOWL: <span id="preview-bowling-style" class="text-white font-bold">FAST</span></div>
-                                </div>
-                            </div>
+                    <!-- Left: Registration Form Inputs -->
+                    <div class="lg:col-span-7 bg-jpl-card border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
+                        <div class="border-b border-slate-800 pb-4">
+                            <h2 class="text-3xl font-heading font-bold text-white">PLAYER REGISTRATION FORM</h2>
+                            <p class="text-xs text-slate-400">Complete all required fields to finalize your official squad listing.</p>
                         </div>
-                    </div>
 
-                    <!-- Right: Full Player Registration Form (7 Cols) -->
-                    <div class="lg:col-span-7 order-1 lg:order-2">
-                        <form id="jpl-registration-form" onsubmit="handleRegistrationSubmit(event)" class="glass-panel rounded-2xl p-6 sm:p-8 space-y-8 shadow-2xl relative">
-                            
-                            <!-- Personal & Identification Section -->
-                            <div>
-                                <h3 class="text-xl font-bold text-white tracking-wide border-b border-slate-700/80 pb-3 mb-5 flex items-center gap-2">
-                                    <i data-lucide="user" class="w-5 h-5 text-jpl-gold"></i>
-                                    <span>Personal & Identification</span>
-                                </h3>
-
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                    <div class="sm:col-span-2">
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Full Name *</label>
-                                        <input type="text" id="fullName" required placeholder="e.g. Tanvir Ahmed" 
-                                            class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl focus:border-jpl-gold text-white text-sm outline-none transition-colors">
-                                    </div>
-
+                        <form id="form-player-registration" onsubmit="submitRegistration(); return false;" class="space-y-6">
+                            <!-- Personal Info -->
+                            <div class="space-y-4">
+                                <h3 class="text-xs font-bold text-jpl-gold uppercase tracking-widest border-b border-slate-800 pb-1">1. Personal Information</h3>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">WhatsApp / Phone *</label>
-                                        <input type="tel" id="phone" required placeholder="+880 1700 000000" 
-                                            class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl focus:border-jpl-gold text-white text-sm outline-none transition-colors">
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
+                                        <input type="text" id="reg-fullname" required oninput="updateJerseyPreview()" placeholder="Enter your full name" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
                                     </div>
-
                                     <div>
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                                            NID / Birth Cert. No. <span class="text-slate-500 lowercase font-normal">(optional)</span>
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Contact Phone Number *</label>
+                                        <input type="tel" id="reg-phone" required placeholder="017XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1">NID or Birth Certificate No <span class="text-slate-500 font-normal">(Optional)</span></label>
+                                    <input type="text" id="reg-nid" placeholder="Enter NID or Birth Cert # (Optional)" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                                </div>
+                            </div>
+
+                            <!-- Cricket Profile -->
+                            <div class="space-y-4">
+                                <h3 class="text-xs font-bold text-jpl-gold uppercase tracking-widest border-b border-slate-800 pb-1">2. Cricket Profile & Kit Details</h3>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-2">Primary Player Role *</label>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="player-role" value="Batsman" checked onchange="updateJerseyPreview()" class="peer sr-only">
+                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-amber-500/10 rounded-xl text-center transition-all">
+                                                <i class="fa-solid fa-cricket-bat-ball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
+                                                <span class="text-xs font-bold text-slate-300 block">Batsman</span>
+                                            </div>
                                         </label>
-                                        <input type="text" id="idNumber" placeholder="Identification Number (Optional)" 
-                                            class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl focus:border-jpl-gold text-white text-sm outline-none transition-colors">
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="player-role" value="Bowler" onchange="updateJerseyPreview()" class="peer sr-only">
+                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-amber-500/10 rounded-xl text-center transition-all">
+                                                <i class="fa-solid fa-baseball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
+                                                <span class="text-xs font-bold text-slate-300 block">Bowler</span>
+                                            </div>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="player-role" value="All-Rounder" onchange="updateJerseyPreview()" class="peer sr-only">
+                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-amber-500/10 rounded-xl text-center transition-all">
+                                                <i class="fa-solid fa-bolt text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
+                                                <span class="text-xs font-bold text-slate-300 block">All-Rounder</span>
+                                            </div>
+                                        </label>
+                                        <label class="cursor-pointer">
+                                            <input type="radio" name="player-role" value="WK-Batsman" onchange="updateJerseyPreview()" class="peer sr-only">
+                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-amber-500/10 rounded-xl text-center transition-all">
+                                                <i class="fa-solid fa-mitten text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
+                                                <span class="text-xs font-bold text-slate-300 block">WK-Batsman</span>
+                                            </div>
+                                        </label>
                                     </div>
+                                </div>
 
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Date of Birth *</label>
-                                        <input type="date" id="dob" required 
-                                            class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl focus:border-jpl-gold text-white text-sm outline-none transition-colors">
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Batting Style *</label>
+                                        <select id="reg-batting" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                                            <option value="Right Handed">Right Handed Batter</option>
+                                            <option value="Left Handed">Left Handed Batter</option>
+                                        </select>
                                     </div>
-
                                     <div>
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Age *</label>
-                                        <input type="number" id="age" min="10" max="25" required placeholder="16" 
-                                            class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl focus:border-jpl-gold text-white text-sm outline-none transition-colors">
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Bowling Style *</label>
+                                        <select id="reg-bowling" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                                            <option value="Right-arm Fast Medium">Right-arm Fast Medium</option>
+                                            <option value="Right-arm Spin (Off-break)">Right-arm Spin (Off-break)</option>
+                                            <option value="Right-arm Leg-spin">Right-arm Leg-spin</option>
+                                            <option value="Left-arm Fast Medium">Left-arm Fast Medium</option>
+                                            <option value="Left-arm Spin (Orthodox)">Left-arm Spin (Orthodox)</option>
+                                            <option value="None / Part-time">None / Part-time</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Preferred Jersey Number (1-99) *</label>
+                                        <input type="number" id="reg-jersey-num" required min="1" max="99" value="18" oninput="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-slate-300 mb-1">Jersey Size *</label>
+                                        <select id="reg-jersey-size" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
+                                            <option value="M">Medium (M)</option>
+                                            <option value="L">Large (L)</option>
+                                            <option value="XL">Extra Large (XL)</option>
+                                            <option value="XXL">Double XL (XXL)</option>
+                                            <option value="S">Small (S)</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Cricket Attributes Section -->
-                            <div>
-                                <h3 class="text-xl font-bold text-white tracking-wide border-b border-slate-700/80 pb-3 mb-5 flex items-center gap-2">
-                                    <i data-lucide="trophy" class="w-5 h-5 text-jpl-cyan"></i>
-                                    <span>Cricket Profile & Kit Specification</span>
-                                </h3>
-
-                                <div class="space-y-5">
-                                    <div>
-                                        <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-3">Primary Player Role *</label>
-                                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                                            <label class="cursor-pointer">
-                                                <input type="radio" name="playerRole" value="All-Rounder" checked class="peer sr-only">
-                                                <div class="p-3 bg-jpl-navy border border-slate-700 rounded-xl text-center peer-checked:border-jpl-gold peer-checked:bg-jpl-gold/10 peer-checked:text-jpl-gold transition-all">
-                                                    <i data-lucide="swords" class="w-5 h-5 mx-auto mb-1"></i>
-                                                    <span class="text-xs font-bold block">All-Rounder</span>
-                                                </div>
-                                            </label>
-                                            <label class="cursor-pointer">
-                                                <input type="radio" name="playerRole" value="Batsman" class="peer sr-only">
-                                                <div class="p-3 bg-jpl-navy border border-slate-700 rounded-xl text-center peer-checked:border-jpl-gold peer-checked:bg-jpl-gold/10 peer-checked:text-jpl-gold transition-all">
-                                                    <i data-lucide="zap" class="w-5 h-5 mx-auto mb-1"></i>
-                                                    <span class="text-xs font-bold block">Batsman</span>
-                                                </div>
-                                            </label>
-                                            <label class="cursor-pointer">
-                                                <input type="radio" name="playerRole" value="Bowler" class="peer sr-only">
-                                                <div class="p-3 bg-jpl-navy border border-slate-700 rounded-xl text-center peer-checked:border-jpl-gold peer-checked:bg-jpl-gold/10 peer-checked:text-jpl-gold transition-all">
-                                                    <i data-lucide="target" class="w-5 h-5 mx-auto mb-1"></i>
-                                                    <span class="text-xs font-bold block">Bowler</span>
-                                                </div>
-                                            </label>
-                                            <label class="cursor-pointer">
-                                                <input type="radio" name="playerRole" value="Wicketkeeper" class="peer sr-only">
-                                                <div class="p-3 bg-jpl-navy border border-slate-700 rounded-xl text-center peer-checked:border-jpl-gold peer-checked:bg-jpl-gold/10 peer-checked:text-jpl-gold transition-all">
-                                                    <i data-lucide="shield" class="w-5 h-5 mx-auto mb-1"></i>
-                                                    <span class="text-xs font-bold block">Wicketkeeper</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                        <div>
-                                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Batting Style *</label>
-                                            <select id="battingStyle" required class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl text-white text-sm outline-none">
-                                                <option value="Right-Handed">Right-Handed</option>
-                                                <option value="Left-Handed">Left-Handed</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Bowling Style *</label>
-                                            <select id="bowlingStyle" required class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl text-white text-sm outline-none">
-                                                <option value="Right-Arm Fast">Right-Arm Fast / Medium</option>
-                                                <option value="Right-Arm Spin">Right-Arm Spin</option>
-                                                <option value="Left-Arm Fast">Left-Arm Fast / Medium</option>
-                                                <option value="Left-Arm Spin">Left-Arm Spin</option>
-                                                <option value="Non-Bowler">Non-Bowler</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Jersey Size *</label>
-                                            <select id="jerseySize" required class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl text-white text-sm outline-none">
-                                                <option value="S">Small (S)</option>
-                                                <option value="M" selected>Medium (M)</option>
-                                                <option value="L">Large (L)</option>
-                                                <option value="XL">Extra Large (XL)</option>
-                                            </select>
-                                        </div>
-
-                                        <div>
-                                            <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Preferred Jersey No. (1-99) *</label>
-                                            <input type="number" id="jerseyNumber" min="1" max="99" value="7" required class="w-full px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl text-white font-bold text-sm outline-none">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Declaration & Submission -->
-                            <div class="pt-4 border-t border-slate-700/80">
-                                <div class="flex items-start space-x-3 mb-6">
-                                    <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 accent-jpl-gold rounded cursor-pointer">
-                                    <label for="terms" class="text-xs text-slate-400 leading-relaxed cursor-pointer">
-                                        I hereby declare that the details provided are accurate and I agree to abide by the official rules and code of conduct of <strong class="text-white">JPL Season 7</strong>.
-                                    </label>
-                                </div>
-
-                                <button type="submit" 
-                                    class="w-full py-4 px-6 bg-gradient-to-r from-jpl-gold via-amber-400 to-jpl-gold text-slate-950 font-sports text-2xl uppercase tracking-widest font-extrabold rounded-xl shadow-lg hover:shadow-jpl-gold/20 transition-all flex items-center justify-center space-x-2 cursor-pointer">
-                                    <i data-lucide="badge-check" class="w-6 h-6"></i>
-                                    <span>Complete Registration</span>
-                                </button>
-                                <p class="text-center text-[11px] text-slate-500 mt-2">
-                                    You can press <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-[10px]">Enter</kbd> to submit the form.
-                                </p>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ==================================================================== -->
-        <!-- VIEW 2: ADMIN CONTROL CENTER                                         -->
-        <!-- ==================================================================== -->
-        <div id="view-admin" class="hidden space-y-8">
-            
-            <!-- Admin PIN Gatekeeper Screen -->
-            <div id="admin-pin-gate" class="max-w-md mx-auto my-8">
-                <div class="glass-panel rounded-2xl p-6 sm:p-8 text-center space-y-6 border border-slate-700 shadow-2xl">
-                    <div class="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mx-auto text-jpl-gold shadow-lg">
-                        <i data-lucide="lock" class="w-8 h-8"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-2xl font-sports font-bold text-white uppercase tracking-wider">Admin Security Access</h2>
-                        <p class="text-xs text-slate-400 mt-1">Enter official Admin PIN to access passcode generator & registered player records.</p>
-                    </div>
-
-                    <!-- FORM WRAPPER FOR ENTER KEY SUPPORT -->
-                    <form id="admin-pin-form" onsubmit="handleAdminPinSubmit(event)" class="space-y-4">
-                        <div class="space-y-2">
-                            <input type="password" id="admin-pin-input" placeholder="Enter Security PIN" autocomplete="off"
-                                class="w-full text-center py-3.5 px-4 bg-jpl-darkNavy border border-slate-700 rounded-xl text-white font-mono text-xl outline-none focus:border-jpl-gold tracking-widest transition-colors">
-                            <p id="admin-pin-error" class="text-xs text-jpl-rose hidden flex items-center justify-center gap-1">
-                                <i data-lucide="x-circle" class="w-3.5 h-3.5"></i>
-                                <span>Incorrect PIN! Access denied.</span>
-                            </p>
-                        </div>
-
-                        <button type="submit" class="w-full py-3.5 bg-jpl-gold hover:bg-amber-400 text-slate-950 font-sports text-xl font-bold uppercase tracking-widest rounded-xl transition-all shadow-lg cursor-pointer">
-                            Unlock Admin Control Center
-                        </button>
-                    </form>
-
-                    <p class="text-[11px] text-slate-500 pt-1">
-                        Press <kbd class="px-1.5 py-0.5 bg-slate-800 text-slate-300 rounded font-mono text-[10px]">Enter</kbd> to unlock. (Security PIN: <code class="text-jpl-gold font-mono">22902276</code>)
-                    </p>
-                </div>
-            </div>
-
-            <!-- Main Admin Dashboard (Unlocked) -->
-            <div id="admin-dashboard" class="hidden space-y-8">
-
-                <!-- Dynamic Analytics Overview -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="glass-panel p-5 rounded-2xl border border-slate-700/80 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold block">Total Passcodes</span>
-                            <span id="stat-total" class="text-3xl font-sports font-bold text-white">0</span>
-                        </div>
-                        <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-slate-300">
-                            <i data-lucide="key" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl border border-emerald-500/30 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold block">Active Passcodes</span>
-                            <span id="stat-active" class="text-3xl font-sports font-bold text-emerald-400">0</span>
-                        </div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                            <i data-lucide="check-circle" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl border border-jpl-gold/30 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold block">Used Passcodes</span>
-                            <span id="stat-used" class="text-3xl font-sports font-bold text-jpl-gold">0</span>
-                        </div>
-                        <div class="w-12 h-12 rounded-xl bg-jpl-gold/10 border border-jpl-gold/30 flex items-center justify-center text-jpl-gold">
-                            <i data-lucide="ticket" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel p-5 rounded-2xl border border-jpl-cyan/30 flex items-center justify-between">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-widest font-semibold block">Registered Players</span>
-                            <span id="stat-players" class="text-3xl font-sports font-bold text-jpl-cyan">0</span>
-                        </div>
-                        <div class="w-12 h-12 rounded-xl bg-jpl-cyan/10 border border-jpl-cyan/30 flex items-center justify-center text-jpl-cyan">
-                            <i data-lucide="users" class="w-6 h-6"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Navigation Tabs -->
-                <div class="flex border-b border-slate-800 space-x-4">
-                    <button id="admin-subtab-codes" onclick="switchAdminSubtab('codes')" 
-                        class="pb-3 px-2 text-sm font-bold border-b-2 border-jpl-gold text-jpl-gold flex items-center gap-2 cursor-pointer">
-                        <i data-lucide="key" class="w-4 h-4"></i>
-                        <span>Passcode Generator</span>
-                    </button>
-                    <button id="admin-subtab-players" onclick="switchAdminSubtab('players')" 
-                        class="pb-3 px-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-white flex items-center gap-2 cursor-pointer">
-                        <i data-lucide="users" class="w-4 h-4"></i>
-                        <span>Registered Players Directory</span>
-                        <span id="player-count-badge" class="bg-jpl-cyan/20 text-jpl-cyan px-2 py-0.5 rounded-full text-xs">0</span>
-                    </button>
-                </div>
-
-                <!-- SUBSECTION 1: PASSCODE MANAGEMENT -->
-                <div id="admin-section-codes" class="space-y-6">
-                    <!-- Generator Card -->
-                    <div class="glass-panel p-6 rounded-2xl border border-jpl-gold/30 space-y-4">
-                        <h3 class="text-xl font-sports font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                            <i data-lucide="wand-2" class="w-5 h-5 text-jpl-gold"></i>
-                            <span>Generate One-Time Access Passcode</span>
-                        </h3>
-
-                        <!-- FORM WRAPPER FOR ENTER KEY SUPPORT -->
-                        <form id="passcode-gen-form" onsubmit="handlePasscodeGenSubmit(event)" class="flex flex-col sm:flex-row gap-3">
-                            <input type="text" id="custom-otp-code" placeholder="Custom Code (e.g. JPL7-TEST / Leave blank for auto-gen)" 
-                                class="flex-1 px-4 py-3 bg-jpl-navy border border-slate-700 rounded-xl text-white font-mono uppercase text-sm outline-none focus:border-jpl-gold">
-                            <button type="submit" 
-                                class="py-3 px-6 bg-jpl-gold hover:bg-amber-400 text-slate-950 font-sports text-xl font-bold uppercase rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer">
-                                <i data-lucide="plus" class="w-5 h-5"></i>
-                                <span>Create Passcode</span>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-jpl-gold via-amber-500 to-amber-600 text-slate-950 font-extrabold text-base hover:shadow-xl hover:shadow-amber-500/20 transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-circle-check"></i> Complete Registration & Issue Pass
                             </button>
                         </form>
                     </div>
 
-                    <!-- Passcode Directory Table -->
-                    <div class="glass-panel rounded-2xl overflow-hidden border border-slate-700">
-                        <div class="p-4 bg-jpl-navy/90 border-b border-slate-700 flex justify-between items-center">
-                            <h4 class="font-sports font-bold text-lg tracking-wider text-white uppercase">Passcodes Directory</h4>
-                            <button type="button" onclick="clearAllData()" class="text-xs text-jpl-rose hover:underline font-mono cursor-pointer">Reset Storage Data</button>
+                    <!-- Right: Live Interactive Jersey Preview -->
+                    <div class="lg:col-span-5 bg-jpl-card border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 lg:sticky lg:top-28">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <h3 class="text-xs font-bold text-jpl-gold uppercase tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-shirt"></i> Live Custom Kit Preview
+                            </h3>
+                            <span class="text-[10px] bg-slate-800 px-2.5 py-1 rounded-full text-slate-400">JPL Official Kit</span>
                         </div>
 
+                        <!-- 3D Card-style Jersey -->
+                        <div class="jersey-shadow relative w-full aspect-[4/5] bg-gradient-to-b from-jpl-dark via-jpl-navy to-slate-950 rounded-2xl border-2 border-jpl-gold/40 p-6 flex flex-col justify-between overflow-hidden">
+                            <!-- Background Stripes -->
+                            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f7b801_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+
+                            <!-- Top Bar on Jersey -->
+                            <div class="relative z-10 flex items-start justify-between">
+                                <div>
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-amber-400 block">SEASON 7</span>
+                                    <span class="font-heading text-xl font-extrabold tracking-wider text-white">JPL CRICKET</span>
+                                </div>
+                                <div class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-amber-500/30 text-[10px] font-bold text-amber-300 uppercase" id="preview-role-badge">
+                                    BATSMAN
+                                </div>
+                            </div>
+
+                            <!-- Jersey Center Number & Name -->
+                            <div class="relative z-10 text-center my-auto space-y-2">
+                                <div class="font-heading text-8xl md:text-9xl font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-amber-300 via-jpl-gold to-amber-600 drop-shadow-2xl" id="preview-number">
+                                    18
+                                </div>
+                                <div class="font-heading text-2xl md:text-3xl font-extrabold uppercase tracking-widest text-white truncate px-2" id="preview-name">
+                                    PLAYER NAME
+                                </div>
+                            </div>
+
+                            <!-- Bottom Details on Jersey -->
+                            <div class="relative z-10 bg-slate-900/90 rounded-xl p-3 border border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
+                                <div>
+                                    <span class="text-slate-500 block text-[9px] font-semibold uppercase">Style</span>
+                                    <span class="font-bold text-white" id="preview-style">RHB • RMF</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-slate-500 block text-[9px] font-semibold uppercase">Size</span>
+                                    <span class="font-bold text-jpl-gold" id="preview-size">Size: M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: LIVE SCORE HUB ================= -->
+        <section id="sec-live" class="hidden space-y-8">
+            <div class="bg-jpl-card border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
+                <!-- Header -->
+                <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
+                            <i class="fa-solid fa-circle text-[10px] animate-pulse mr-1"></i> Live Match Center
+                        </span>
+                        <h2 class="text-3xl font-heading font-bold text-white mt-2" id="live-match-heading">JPL Season 7 Fixture</h2>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-slate-400 font-semibold">MATCH STATUS</div>
+                        <div class="text-sm font-bold text-amber-400" id="live-status-badge">IN PROGRESS</div>
+                    </div>
+                </div>
+
+                <!-- Main Scorecard Display -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center bg-slate-900/80 rounded-2xl p-6 border border-slate-800">
+                    <!-- Batting Team -->
+                    <div class="text-center lg:text-left space-y-1">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">BATTING TEAM</div>
+                        <div class="text-2xl font-bold text-white" id="live-team-a">Team Alpha</div>
+                        <div class="text-5xl font-heading font-extrabold text-jpl-gold" id="live-score-display">0 / 0</div>
+                        <div class="text-xs text-slate-400 font-medium" id="live-overs-display">Overs: 0.0 / 10.0</div>
+                    </div>
+
+                    <!-- Target / Run Rate Center -->
+                    <div class="text-center space-y-2 py-4 lg:py-0 border-y lg:border-y-0 lg:border-x border-slate-800 px-4">
+                        <div class="text-xs font-bold text-slate-400 uppercase">Target / CRR</div>
+                        <div class="text-xl font-bold text-amber-300" id="live-target-display">Target: --</div>
+                        <div class="flex items-center justify-center gap-4 text-xs font-semibold text-slate-300">
+                            <span>CRR: <strong class="text-white" id="live-crr">0.00</strong></span>
+                            <span>RRR: <strong class="text-white" id="live-rrr">--</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Bowling Team -->
+                    <div class="text-center lg:text-right space-y-1">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">BOWLING TEAM</div>
+                        <div class="text-2xl font-bold text-white" id="live-team-b">Team Strikers</div>
+                        <div class="text-sm text-slate-400 mt-2" id="live-extras-display">Extras: 0 (W 0, NB 0)</div>
+                    </div>
+                </div>
+
+                <!-- Active Batter & Bowler Stats Bar -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Batters -->
+                    <div class="bg-slate-900/60 rounded-xl p-4 border border-slate-800 space-y-2">
+                        <div class="text-xs font-bold text-jpl-gold uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-cricket-bat-ball"></i> Active Batters
+                        </div>
+                        <div class="flex justify-between items-center text-sm py-1 border-b border-slate-800/60">
+                            <span class="text-white font-semibold" id="live-striker">Striker: * Player 1</span>
+                            <span class="font-mono text-jpl-gold font-bold" id="live-striker-runs">0 (0)</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm py-1">
+                            <span class="text-slate-300" id="live-nonstriker">Non-Striker: Player 2</span>
+                            <span class="font-mono text-slate-300 font-bold" id="live-nonstriker-runs">0 (0)</span>
+                        </div>
+                    </div>
+
+                    <!-- Bowler -->
+                    <div class="bg-slate-900/60 rounded-xl p-4 border border-slate-800 space-y-2">
+                        <div class="text-xs font-bold text-blue-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-baseball"></i> Current Bowler
+                        </div>
+                        <div class="flex justify-between items-center text-sm py-1">
+                            <span class="text-white font-semibold" id="live-bowler">Bowler Name</span>
+                            <span class="font-mono text-blue-300 font-bold" id="live-bowler-figures">0-0 (0.0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Commentary Feed -->
+                <div class="space-y-3">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Ball-by-Ball Timeline</h3>
+                    <div id="live-commentary-list" class="space-y-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                        <div class="text-center py-6 text-slate-500 text-xs">No commentary logs yet for this match.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 4: HALL OF FAME / PAST SEASONS ================= -->
+        <section id="sec-past-seasons" class="hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold text-jpl-gold uppercase tracking-widest">JPL Heritage</span>
+                <h2 class="text-4xl font-heading font-bold text-white">HALL OF FAME & PAST SEASONS</h2>
+                <p class="text-xs text-slate-400">Explore previous champions, finalists, and legendary performances from Season 1 to Season 6.</p>
+            </div>
+
+            <!-- Past Champions Cards Grid -->
+            <div id="past-seasons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Dynamically Rendered -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 5: ORGANIZING COMMITTEE ================= -->
+        <section id="sec-committee" class="hidden space-y-8">
+            <div class="border-b border-slate-800 pb-4">
+                <span class="text-xs font-bold text-jpl-gold uppercase tracking-widest">Tournament Board</span>
+                <h2 class="text-4xl font-heading font-bold text-white">ORGANIZING COMMITTEE</h2>
+                <p class="text-xs text-slate-400">The driving force behind Junior Premier League Season 7.</p>
+            </div>
+
+            <!-- Committee Grid -->
+            <div id="committee-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Dynamically Rendered -->
+            </div>
+        </section>
+
+        <!-- ================= SECTION 6: ADMIN CONTROL PANEL ================= -->
+        <section id="sec-admin" class="hidden space-y-8">
+            <!-- ADMIN PIN GATEKEEPER MODAL / SCREEN -->
+            <div id="admin-pin-screen" class="max-w-md mx-auto bg-jpl-card border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
+                <div class="text-center space-y-2">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/30 text-jpl-gold flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h2 class="text-3xl font-heading font-bold text-white">ADMIN PORTAL ACCESS</h2>
+                    <p class="text-xs text-slate-400">Enter Security PIN to unlock management controls.</p>
+                </div>
+
+                <form id="form-admin-pin" onsubmit="verifyAdminPin(); return false;" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Admin Security PIN</label>
+                        <input type="password" id="admin-pin-input" placeholder="Enter PIN" maxlength="12" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3 text-center text-2xl font-mono text-jpl-gold focus:outline-none">
+                    </div>
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                        Unlock Admin Panel <i class="fa-solid fa-lock-open"></i>
+                    </button>
+                </form>
+                <div id="admin-pin-error" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold text-center"></div>
+            </div>
+
+            <!-- UNLOCKED ADMIN DASHBOARD CONTAINER -->
+            <div id="admin-dashboard-view" class="hidden space-y-8">
+                <!-- Admin Header & Sub-nav Tabs -->
+                <div class="bg-jpl-card border border-slate-800 rounded-2xl p-4 md:p-6 flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle text-[8px] mr-1"></i> Admin Session Active</span>
+                        <h2 class="text-3xl font-heading font-bold text-white">ADMIN CONTROL CENTER</h2>
+                    </div>
+                    <button onclick="lockAdminPanel()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-bold hover:bg-rose-500/20 hover:text-rose-400 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-lock"></i> Lock Panel
+                    </button>
+                </div>
+
+                <!-- Admin Sub-Navigation Buttons -->
+                <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
+                    <button onclick="switchAdminTab('otps')" id="admin-tab-otps" class="admin-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-key mr-1"></i> OTP Passcodes
+                    </button>
+                    <button onclick="switchAdminTab('roster')" id="admin-tab-roster" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-id-badge mr-1"></i> Registered Players Roster
+                    </button>
+                    <button onclick="switchAdminTab('scorer')" id="admin-tab-scorer" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-tower-broadcast mr-1"></i> Live Scorer Console
+                    </button>
+                    <button onclick="switchAdminTab('settings')" id="admin-tab-settings" class="admin-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all">
+                        <i class="fa-solid fa-sliders mr-1"></i> Master Settings & History
+                    </button>
+                </div>
+
+                <!-- ADMIN SUB-TAB 1: OTP PASSCODES -->
+                <div id="admin-sub-otps" class="space-y-6">
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white">Generate One-Time Passcodes</h3>
+                        <div class="flex flex-wrap gap-4 items-end">
+                            <div class="flex-grow max-w-xs">
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Custom Passcode (Optional)</label>
+                                <input type="text" id="admin-custom-otp" placeholder="Auto-generated if empty" uppercase maxlength="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white font-mono uppercase focus:outline-none">
+                            </div>
+                            <button onclick="generateNewOTP()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center gap-2">
+                                <i class="fa-solid fa-plus"></i> Generate Passcode
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Passcode List Table -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
+                        <div class="p-4 border-b border-slate-800 font-bold text-sm text-slate-300">Active & Issued Passcodes</div>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left text-sm">
-                                <thead class="bg-slate-900/80 text-xs uppercase text-slate-400 border-b border-slate-800 font-mono">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-slate-900/80 text-slate-400 uppercase font-semibold">
                                     <tr>
-                                        <th class="p-3.5">Passcode</th>
-                                        <th class="p-3.5">Status</th>
-                                        <th class="p-3.5">Assigned Player</th>
-                                        <th class="p-3.5 text-right">Actions</th>
+                                        <th class="p-4">Passcode</th>
+                                        <th class="p-4">Created Date</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4 text-right">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="otp-table-body" class="divide-y divide-slate-800 font-mono text-xs">
-                                    <!-- Dynamic Passcodes -->
+                                <tbody id="admin-otps-table-body" class="divide-y divide-slate-800">
+                                    <!-- Rendered dynamically -->
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- SUBSECTION 2: REGISTERED PLAYERS MANAGEMENT -->
-                <div id="admin-section-players" class="hidden space-y-6">
-                    
-                    <!-- Search & Filter Bar -->
-                    <div class="glass-panel p-4 rounded-2xl border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4">
-                        <div class="relative w-full md:w-96">
-                            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400"></i>
-                            <input type="text" id="player-search-input" onkeyup="filterPlayerList()" placeholder="Search by name, ID, phone, or passcode..." 
-                                class="w-full pl-10 pr-4 py-2.5 bg-jpl-navy border border-slate-700 rounded-xl text-white text-xs outline-none focus:border-jpl-gold">
+                <!-- ADMIN SUB-TAB 2: REGISTERED PLAYERS ROSTER -->
+                <div id="admin-sub-roster" class="hidden space-y-6">
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-4 md:p-6 flex flex-wrap items-center justify-between gap-4">
+                        <div>
+                            <h3 class="text-xl font-heading font-bold text-white">Registered Player Directory</h3>
+                            <p class="text-xs text-slate-400">View, search, and remove player registrations.</p>
                         </div>
-
-                        <div class="flex items-center gap-3 w-full md:w-auto">
-                            <select id="player-filter-role" onchange="filterPlayerList()" class="px-3 py-2.5 bg-jpl-navy border border-slate-700 rounded-xl text-slate-300 text-xs outline-none focus:border-jpl-gold">
-                                <option value="ALL">All Roles</option>
-                                <option value="All-Rounder">All-Rounder</option>
-                                <option value="Batsman">Batsman</option>
-                                <option value="Bowler">Bowler</option>
-                                <option value="Wicketkeeper">Wicketkeeper</option>
-                            </select>
+                        <div class="w-full sm:w-64">
+                            <input type="text" id="admin-roster-search" oninput="renderAdminRoster()" placeholder="Search name or phone..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none">
                         </div>
                     </div>
 
-                    <!-- Registered Players Roster Table -->
-                    <div class="glass-panel rounded-2xl overflow-hidden border border-slate-700">
-                        <div class="p-4 bg-jpl-navy/90 border-b border-slate-700 flex justify-between items-center">
-                            <h4 class="font-sports font-bold text-lg tracking-wider text-white uppercase">Registered Player Records</h4>
-                            <span class="text-xs text-slate-400 font-mono" id="showing-players-count">Showing 0 players</span>
-                        </div>
-
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left text-sm">
-                                <thead class="bg-slate-900/80 text-xs uppercase text-slate-400 border-b border-slate-800 font-mono">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-slate-900/80 text-slate-400 uppercase font-semibold">
                                     <tr>
-                                        <th class="p-3.5">Reg ID / Date</th>
-                                        <th class="p-3.5">Player Details</th>
-                                        <th class="p-3.5">Cricket Role</th>
-                                        <th class="p-3.5">Jersey / Gear</th>
-                                        <th class="p-3.5">Passcode</th>
-                                        <th class="p-3.5 text-right">Remove Player</th>
+                                        <th class="p-4">Reg ID</th>
+                                        <th class="p-4">Player Name</th>
+                                        <th class="p-4">Phone</th>
+                                        <th class="p-4">Role</th>
+                                        <th class="p-4">Jersey #</th>
+                                        <th class="p-4">Passcode Used</th>
+                                        <th class="p-4 text-right">Action</th>
                                     </tr>
                                 </thead>
-                                <tbody id="players-table-body" class="divide-y divide-slate-800 text-xs">
-                                    <!-- Dynamic Players -->
+                                <tbody id="admin-roster-table-body" class="divide-y divide-slate-800">
+                                    <!-- Rendered dynamically -->
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
                 </div>
 
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- Registration Receipt Confirmation Modal -->
-    <div id="confirmation-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-jpl-navy border border-jpl-gold/40 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative transform scale-95 transition-transform duration-300" id="printable-modal">
-            
-            <button onclick="closeModal()" class="no-print absolute top-4 right-4 text-slate-400 hover:text-white bg-slate-800 w-8 h-8 rounded-full flex items-center justify-center cursor-pointer">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
-
-            <div class="text-center pb-5 border-b border-slate-700/80">
-                <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto mb-3 text-emerald-400 shadow-lg">
-                    <i data-lucide="check-circle-2" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-sports tracking-wider text-white uppercase font-bold">Registration Confirmed!</h3>
-                <p class="text-xs text-slate-400">Passcode marked as USED • Official Player Pass</p>
-                
-                <div class="mt-3 inline-block bg-jpl-accent border border-jpl-gold/30 px-4 py-1.5 rounded-xl">
-                    <span class="text-[10px] text-slate-400 uppercase tracking-widest block">Official Player ID</span>
-                    <span id="modal-reg-id" class="text-lg font-mono font-bold text-jpl-gold tracking-widest">JPL7-REG-0000</span>
-                </div>
-            </div>
-
-            <div class="py-5 space-y-3 text-sm">
-                <div class="grid grid-cols-2 gap-3 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                    <div>
-                        <span class="text-[10px] uppercase text-slate-400 block font-semibold">Player Name</span>
-                        <span id="modal-player-name" class="font-bold text-white uppercase">--</span>
+                <!-- ADMIN SUB-TAB 3: LIVE SCORER CONSOLE -->
+                <div id="admin-sub-scorer" class="hidden space-y-6">
+                    <!-- Match Setup Panel -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Live Match Setup & Configuration</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Batting Team Name</label>
+                                <input type="text" id="scorer-setup-teama" value="Team Alpha" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Bowling Team Name</label>
+                                <input type="text" id="scorer-setup-teamb" value="Team Strikers" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Total Match Overs</label>
+                                <input type="number" id="scorer-setup-overs" value="10" min="1" max="50" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white focus:outline-none">
+                            </div>
+                        </div>
+                        <button onclick="launchMatchScorer()" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all">
+                            Initialize / Launch Match
+                        </button>
                     </div>
-                    <div>
-                        <span class="text-[10px] uppercase text-slate-400 block font-semibold">Phone</span>
-                        <span id="modal-phone" class="font-bold text-slate-200">--</span>
-                    </div>
-                    <div>
-                        <span class="text-[10px] uppercase text-slate-400 block font-semibold">Role</span>
-                        <span id="modal-role" class="font-bold text-jpl-cyan">--</span>
-                    </div>
-                    <div>
-                        <span class="text-[10px] uppercase text-slate-400 block font-semibold">Jersey No & Size</span>
-                        <span id="modal-jersey" class="font-bold text-white">--</span>
+
+                    <!-- Ball-by-Ball Action Console -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <h3 class="text-xl font-heading font-bold text-white">Scorer Control Pad</h3>
+                            <button onclick="undoLastBall()" class="px-4 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-amber-400 text-xs font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-rotate-left"></i> Undo Ball
+                            </button>
+                        </div>
+
+                        <!-- Quick Scoring Buttons Grid -->
+                        <div class="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-9 gap-3">
+                            <button onclick="recordBall(0, false)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-2xl font-bold text-white">0</button>
+                            <button onclick="recordBall(1, false)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-2xl font-bold text-white">1</button>
+                            <button onclick="recordBall(2, false)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-2xl font-bold text-white">2</button>
+                            <button onclick="recordBall(3, false)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-2xl font-bold text-white">3</button>
+                            <button onclick="recordBall(4, false)" class="py-4 bg-amber-500/10 border border-amber-500/40 hover:bg-amber-500/20 rounded-xl font-heading text-2xl font-bold text-jpl-gold">4</button>
+                            <button onclick="recordBall(6, false)" class="py-4 bg-amber-500/20 border border-amber-500 hover:bg-amber-500/30 rounded-xl font-heading text-2xl font-bold text-jpl-gold">6</button>
+                            <button onclick="recordWicket()" class="py-4 bg-rose-500/20 border border-rose-500 hover:bg-rose-500/30 rounded-xl font-heading text-2xl font-bold text-rose-400">W</button>
+                            <button onclick="recordExtra('WD')" class="py-4 bg-blue-500/10 border border-blue-500/40 hover:bg-blue-500/20 rounded-xl font-heading text-lg font-bold text-blue-300">WD</button>
+                            <button onclick="recordExtra('NB')" class="py-4 bg-purple-500/10 border border-purple-500/40 hover:bg-purple-500/20 rounded-xl font-heading text-lg font-bold text-purple-300">NB</button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="bg-jpl-gold/10 border border-jpl-gold/30 p-3 rounded-xl text-xs text-amber-200 flex items-center gap-2">
-                    <i data-lucide="info" class="w-4 h-4 text-jpl-gold shrink-0"></i>
-                    <span>Your OTP code has been permanently marked as <strong>USED</strong>. Keep this player pass for trials.</span>
+                <!-- ADMIN SUB-TAB 4: MASTER SETTINGS & HISTORY -->
+                <div id="admin-sub-settings" class="hidden space-y-8">
+                    <!-- Registration Master Switch -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                            <div>
+                                <h3 class="text-xl font-heading font-bold text-white">Registration Control Switch</h3>
+                                <p class="text-xs text-slate-400">Toggle public registration between ACTIVE and COMING SOON mode.</p>
+                            </div>
+                            <div id="admin-reg-status-badge" class="px-3 py-1 rounded-full text-xs font-bold uppercase">
+                                ACTIVE
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <button onclick="setRegistrationStatus(true)" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider">
+                                Enable Registration (ACTIVE)
+                            </button>
+                            <button onclick="setRegistrationStatus(false)" class="px-6 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold uppercase tracking-wider">
+                                Disable (COMING SOON Mode)
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Organizing Committee Form -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Add Organizing Committee Member</h3>
+                        <form id="form-add-committee" onsubmit="addCommitteeMember(); return false;" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Full Name</label>
+                                <input type="text" id="comm-name" required placeholder="Member Name" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Designation / Role</label>
+                                <input type="text" id="comm-role" required placeholder="e.g. Convener" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Phone Number</label>
+                                <input type="text" id="comm-phone" placeholder="Contact #" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Photo Avatar URL</label>
+                                <input type="url" id="comm-photo" placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2 md:col-span-4">
+                                <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider">
+                                    Add Committee Member
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Past Seasons & Champions Manager -->
+                    <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
+                        <h3 class="text-xl font-heading font-bold text-white border-b border-slate-800 pb-2">Add Past Season Champion Record</h3>
+                        <form id="form-add-past-season" onsubmit="addPastSeasonRecord(); return false;" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Season Title</label>
+                                <input type="text" id="past-season-name" required placeholder="e.g. JPL Season 6" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Champions Team</label>
+                                <input type="text" id="past-champion" required placeholder="Winning Squad Name" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Runners-Up Team</label>
+                                <input type="text" id="past-runnerup" placeholder="Finalist Team" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Player of Tournament</label>
+                                <input type="text" id="past-mvp" placeholder="MVP Name" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-400 mb-1">Year</label>
+                                <input type="text" id="past-year" placeholder="e.g. 2025" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none">
+                            </div>
+                            <div class="sm:col-span-2 md:col-span-3">
+                                <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider">
+                                    Save Past Season Record
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="no-print pt-2 flex gap-3">
-                <button onclick="window.print()" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold tracking-wider uppercase transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                    <i data-lucide="printer" class="w-4 h-4"></i>
-                    <span>Print Receipt</span>
-                </button>
-                <button onclick="closeModalAndLock()" class="flex-1 py-3 bg-jpl-gold text-slate-950 rounded-xl text-xs font-bold tracking-wider uppercase transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                    <i data-lucide="check" class="w-4 h-4"></i>
-                    <span>Done</span>
-                </button>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    <!-- Admin Player Delete Confirmation Modal -->
-    <div id="delete-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="bg-jpl-navy border border-jpl-rose/40 rounded-2xl max-w-md w-full p-6 shadow-2xl relative space-y-5">
-            <div class="w-14 h-14 bg-rose-500/20 border border-rose-500/40 rounded-2xl flex items-center justify-center text-jpl-rose mx-auto">
-                <i data-lucide="user-x" class="w-7 h-7"></i>
+    <!-- REGISTRATION SUCCESS MODAL (RECEIPT) -->
+    <div id="receipt-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-jpl-card border border-jpl-gold/40 rounded-3xl p-6 md:p-8 max-w-lg w-full space-y-6 shadow-2xl relative">
+            <div class="text-center space-y-2">
+                <div class="w-16 h-16 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h3 class="text-3xl font-heading font-bold text-white">REGISTRATION CONFIRMED!</h3>
+                <p class="text-xs text-slate-400">Junior Premier League Season 7 Official Player Pass</p>
             </div>
 
-            <div class="text-center space-y-1">
-                <h3 class="text-xl font-sports font-bold text-white uppercase tracking-wider">Remove Player Registration?</h3>
-                <p class="text-xs text-slate-400">Are you sure you want to remove <strong id="delete-player-name" class="text-white">Player</strong> from the database?</p>
-            </div>
-
-            <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800 space-y-2 text-xs">
-                <label class="flex items-center space-x-2 cursor-pointer">
-                    <input type="checkbox" id="delete-reactivate-otp" checked class="w-4 h-4 accent-jpl-gold rounded">
-                    <span class="text-slate-300">Reactivate passcode (<code id="delete-player-code" class="text-jpl-gold">JPL7-XXXX</code>) for re-use</span>
-                </label>
+            <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3 font-mono text-xs">
+                <div class="flex justify-between border-b border-slate-800 pb-2">
+                    <span class="text-slate-400">Registration ID:</span>
+                    <span class="text-jpl-gold font-bold text-sm" id="receipt-reg-id">JPL7-2026-0001</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Player Name:</span>
+                    <span class="text-white font-bold" id="receipt-name">--</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Role:</span>
+                    <span class="text-white font-bold" id="receipt-role">--</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Jersey Number:</span>
+                    <span class="text-white font-bold" id="receipt-number">--</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-400">Contact:</span>
+                    <span class="text-white font-bold" id="receipt-phone">--</span>
+                </div>
             </div>
 
             <div class="flex gap-3">
-                <button onclick="closeDeleteModal()" class="flex-1 py-2.5 bg-slate-800 text-slate-300 font-bold rounded-xl text-xs uppercase tracking-wider cursor-pointer">
-                    Cancel
+                <button onclick="window.print()" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold transition-all">
+                    <i class="fa-solid fa-print mr-1"></i> Print Pass
                 </button>
-                <button onclick="confirmRemovePlayer()" class="flex-1 py-2.5 bg-jpl-rose text-white font-bold rounded-xl text-xs uppercase tracking-wider hover:bg-rose-600 transition-colors cursor-pointer">
-                    Remove Record
+                <button onclick="closeReceiptModal()" class="flex-1 py-3 bg-gradient-to-r from-jpl-gold to-amber-500 text-slate-950 rounded-xl text-xs font-bold transition-all">
+                    Done
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- JAVASCRIPT APPLICATION STATE & LOGIC -->
     <script>
-        // Storage Keys
-        const STORAGE_KEY_OTPS = 'JPL7_OTPS_LIST_V2';
-        const STORAGE_KEY_PLAYERS = 'JPL7_PLAYERS_LIST_V2';
+        // APPLICATION STATE STORAGE
+        const ADMIN_PIN = "22902276";
 
-        // Default Passcodes
-        const defaultOTPs = [
-            { code: 'JPL7-89A2', status: 'active', assignedPlayer: null },
-            { code: 'JPL7-X491', status: 'active', assignedPlayer: null },
-            { code: 'JPL7-M720', status: 'used', assignedPlayer: 'Tanvir Ahmed' }
-        ];
-
-        // Sample Player
-        const defaultPlayers = [
-            {
-                regID: 'JPL7-REG-1042',
-                code: 'JPL7-M720',
-                fullName: 'Tanvir Ahmed',
-                phone: '+880 1711 223344',
-                idNumber: '1998271625412',
-                dob: '2005-08-14',
-                age: '19',
-                role: 'All-Rounder',
-                battingStyle: 'Right-Handed',
-                bowlingStyle: 'Right-Arm Fast',
-                jerseySize: 'M',
-                jerseyNumber: '07',
-                registeredAt: '2026-10-09 14:30'
+        let appState = {
+            registrationActive: true,
+            isAdminUnlocked: false,
+            verifiedCode: null,
+            otps: JSON.parse(localStorage.getItem('jpl_otps')) || [
+                { code: 'JPL7-89A2', status: 'ACTIVE', created: '2026-10-12' },
+                { code: 'JPL7-VIP1', status: 'ACTIVE', created: '2026-10-12' }
+            ],
+            players: JSON.parse(localStorage.getItem('jpl_players')) || [],
+            committee: JSON.parse(localStorage.getItem('jpl_committee')) || [
+                { id: 1, name: 'Md Nehal Islam Khan', role: 'Tournament Director', phone: '01700000000', photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150' },
+                { id: 2, name: 'Senior Advisor', role: 'Chief Coordinator', phone: '01800000000', photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150' }
+            ],
+            pastSeasons: JSON.parse(localStorage.getItem('jpl_past_seasons')) || [
+                { season: 'JPL Season 6', year: '2025', champion: 'Danger Lion Club', runnerup: 'Vatapara Strikers', mvp: 'Virat Player' },
+                { season: 'JPL Season 5', year: '2024', champion: 'Junior Super Kings', runnerup: 'Rajshahi Royals', mvp: 'Tournament Star' }
+            ],
+            liveMatch: JSON.parse(localStorage.getItem('jpl_live_match')) || {
+                teamA: 'Team Alpha',
+                teamB: 'Team Strikers',
+                runs: 0,
+                wickets: 0,
+                overs: 0,
+                balls: 0,
+                target: null,
+                extras: 0,
+                striker: 'Player 1',
+                strikerRuns: 0,
+                nonStriker: 'Player 2',
+                nonStrikerRuns: 0,
+                bowler: 'Bowler 1',
+                bowlerOvers: 0,
+                bowlerRuns: 0,
+                bowlerWickets: 0,
+                commentary: []
             }
-        ];
+        };
 
-        // Global State
-        let otps = JSON.parse(localStorage.getItem(STORAGE_KEY_OTPS)) || defaultOTPs;
-        let players = JSON.parse(localStorage.getItem(STORAGE_KEY_PLAYERS)) || defaultPlayers;
-        let verifiedCode = null;
-        let isAdminUnlocked = false;
-        let playerToDelete = null;
-
-        // Initialize on DOM load
+        // INITIALIZATION
         document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            saveState();
             checkUrlQueryParams();
-            setupJerseyListeners();
-            setupKeyboardListeners();
-            renderAdminTables();
-            updateAnalytics();
+            updateStatsCounters();
+            renderCommittee();
+            renderPastSeasons();
+            renderAdminOTPs();
+            renderAdminRoster();
+            updateLiveMatchUI();
         });
 
-        // Save State
         function saveState() {
-            localStorage.setItem(STORAGE_KEY_OTPS, JSON.stringify(otps));
-            localStorage.setItem(STORAGE_KEY_PLAYERS, JSON.stringify(players));
+            localStorage.setItem('jpl_otps', JSON.stringify(appState.otps));
+            localStorage.setItem('jpl_players', JSON.stringify(appState.players));
+            localStorage.setItem('jpl_committee', JSON.stringify(appState.committee));
+            localStorage.setItem('jpl_past_seasons', JSON.stringify(appState.pastSeasons));
+            localStorage.setItem('jpl_live_match', JSON.stringify(appState.liveMatch));
+            updateStatsCounters();
         }
 
-        // Setup Keyboard Listeners for Explicit Enter Key Handling
-        function setupKeyboardListeners() {
-            const otpInput = document.getElementById('otp-input');
-            const adminPinInput = document.getElementById('admin-pin-input');
-            const customOtpCode = document.getElementById('custom-otp-code');
+        // NAVIGATION LOGIC
+        function switchTab(tabId) {
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('text-jpl-gold', 'bg-slate-800'));
+            
+            const targetSec = document.getElementById(`sec-${tabId}`);
+            if (targetSec) targetSec.classList.remove('hidden');
 
-            if (otpInput) {
-                otpInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        verifyPasscode();
-                    }
-                });
-            }
+            const navBtn = document.getElementById(`nav-${tabId}`);
+            if (navBtn) navBtn.classList.add('text-jpl-gold', 'bg-slate-800');
 
-            if (adminPinInput) {
-                adminPinInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        unlockAdmin();
-                    }
-                });
-            }
-
-            if (customOtpCode) {
-                customOtpCode.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        generatePasscode();
-                    }
-                });
+            if (tabId === 'register') {
+                handleRegistrationTabAccess();
             }
         }
 
-        // Form Submit Handlers with Event Prevention
-        function handleOtpSubmit(e) {
-            e.preventDefault();
-            verifyPasscode();
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        function handleAdminPinSubmit(e) {
-            e.preventDefault();
-            unlockAdmin();
-        }
+        // REGISTRATION GATEKEEPER & MODE LOGIC
+        function handleRegistrationTabAccess() {
+            const comingSoonView = document.getElementById('reg-coming-soon-view');
+            const gatekeeperView = document.getElementById('reg-gatekeeper-view');
+            const formView = document.getElementById('reg-form-view');
 
-        function handlePasscodeGenSubmit(e) {
-            e.preventDefault();
-            generatePasscode();
-        }
+            comingSoonView.classList.add('hidden');
+            gatekeeperView.classList.add('hidden');
+            formView.classList.add('hidden');
 
-        function handleRegistrationSubmit(e) {
-            e.preventDefault();
-            completeRegistration();
-        }
-
-        // Switch Main Views (Player vs Admin Portal)
-        function switchView(view) {
-            const playerTab = document.getElementById('tab-player');
-            const adminTab = document.getElementById('tab-admin');
-            const playerView = document.getElementById('view-player');
-            const adminView = document.getElementById('view-admin');
-
-            if (view === 'player') {
-                playerTab.className = "px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 bg-jpl-gold text-slate-950 shadow-md";
-                adminTab.className = "px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 text-slate-400 hover:text-white";
-                playerView.classList.remove('hidden');
-                adminView.classList.add('hidden');
+            if (!appState.registrationActive) {
+                comingSoonView.classList.remove('hidden');
+            } else if (appState.verifiedCode) {
+                formView.classList.remove('hidden');
+                document.getElementById('display-verified-code').innerText = appState.verifiedCode;
             } else {
-                adminTab.className = "px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 bg-jpl-gold text-slate-950 shadow-md";
-                playerTab.className = "px-5 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all flex items-center space-x-2 text-slate-400 hover:text-white";
-                adminView.classList.remove('hidden');
-                playerView.classList.add('hidden');
+                gatekeeperView.classList.remove('hidden');
             }
         }
 
-        // Switch Admin Dashboard Subtabs
-        function switchAdminSubtab(subtab) {
-            const btnCodes = document.getElementById('admin-subtab-codes');
-            const btnPlayers = document.getElementById('admin-subtab-players');
-            const secCodes = document.getElementById('admin-section-codes');
-            const secPlayers = document.getElementById('admin-section-players');
-
-            if (subtab === 'codes') {
-                btnCodes.className = "pb-3 px-2 text-sm font-bold border-b-2 border-jpl-gold text-jpl-gold flex items-center gap-2 cursor-pointer";
-                btnPlayers.className = "pb-3 px-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-white flex items-center gap-2 cursor-pointer";
-                secCodes.classList.remove('hidden');
-                secPlayers.classList.add('hidden');
-            } else {
-                btnPlayers.className = "pb-3 px-2 text-sm font-bold border-b-2 border-jpl-gold text-jpl-gold flex items-center gap-2 cursor-pointer";
-                btnCodes.className = "pb-3 px-2 text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-white flex items-center gap-2 cursor-pointer";
-                secPlayers.classList.remove('hidden');
-                secCodes.classList.add('hidden');
-            }
-        }
-
-        // Check URL Query Parameters for automatic passcode entry
         function checkUrlQueryParams() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const codeParam = urlParams.get('code');
-            if (codeParam) {
-                document.getElementById('otp-input').value = codeParam.toUpperCase();
+            const params = new URLSearchParams(window.location.search);
+            const code = params.get('code');
+            if (code) {
+                document.getElementById('otp-input').value = code.toUpperCase();
                 verifyPasscode();
             }
         }
 
-        // Verify Passcode Entry
         function verifyPasscode() {
-            const inputVal = document.getElementById('otp-input').value.trim().toUpperCase();
-            const errorElem = document.getElementById('otp-error');
-            const errorText = document.getElementById('otp-error-text');
+            const inputCode = document.getElementById('otp-input').value.trim().toUpperCase();
+            const errorMsg = document.getElementById('otp-error-msg');
+            errorMsg.classList.add('hidden');
 
-            if (!inputVal) {
-                errorText.textContent = "Please enter an access passcode.";
-                errorElem.classList.remove('hidden');
-                return;
-            }
-
-            const match = otps.find(o => o.code === inputVal);
-
-            if (!match) {
-                errorText.textContent = "Invalid passcode. Please check and try again.";
-                errorElem.classList.remove('hidden');
-            } else if (match.status === 'used') {
-                errorText.textContent = "This passcode has already been used for a registration.";
-                errorElem.classList.remove('hidden');
-            } else if (match.status === 'revoked') {
-                errorText.textContent = "This passcode has been revoked by tournament admin.";
-                errorElem.classList.remove('hidden');
-            } else {
-                errorElem.classList.add('hidden');
-                verifiedCode = match.code;
-                document.getElementById('verified-code-badge').textContent = verifiedCode;
-                document.getElementById('otp-gatekeeper').classList.add('hidden');
-                document.getElementById('registration-portal').classList.remove('hidden');
-                showToast("Passcode verified successfully!", "success");
-            }
-        }
-
-        function lockPortal() {
-            verifiedCode = null;
-            document.getElementById('otp-input').value = "";
-            document.getElementById('otp-gatekeeper').classList.remove('hidden');
-            document.getElementById('registration-portal').classList.add('hidden');
-        }
-
-        // Live Jersey Card Sync Listeners
-        function setupJerseyListeners() {
-            const fullNameInput = document.getElementById('fullName');
-            const jerseyNumberInput = document.getElementById('jerseyNumber');
-            const jerseySizeSelect = document.getElementById('jerseySize');
-            const battingStyleSelect = document.getElementById('battingStyle');
-            const bowlingStyleSelect = document.getElementById('bowlingStyle');
-
-            fullNameInput.addEventListener('input', (e) => {
-                document.getElementById('preview-player-name').textContent = e.target.value.trim() ? e.target.value.trim().toUpperCase() : 'PLAYER NAME';
-            });
-
-            jerseyNumberInput.addEventListener('input', (e) => {
-                let val = parseInt(e.target.value, 10);
-                if (isNaN(val) || val < 1) val = '07';
-                document.getElementById('preview-jersey-number').textContent = val < 10 && typeof val === 'number' ? `0${val}` : val;
-            });
-
-            jerseySizeSelect.addEventListener('change', (e) => {
-                document.getElementById('preview-jersey-size').textContent = e.target.value;
-            });
-
-            battingStyleSelect.addEventListener('change', (e) => {
-                document.getElementById('preview-batting-style').textContent = e.target.value.includes('Right') ? 'RIGHT' : 'LEFT';
-            });
-
-            bowlingStyleSelect.addEventListener('change', (e) => {
-                const val = e.target.value;
-                document.getElementById('preview-bowling-style').textContent = val.includes('Fast') ? 'FAST' : val.includes('Spin') ? 'SPIN' : 'N/A';
-            });
-
-            document.querySelectorAll('input[name="playerRole"]').forEach(radio => {
-                radio.addEventListener('change', (e) => {
-                    document.getElementById('preview-player-role').textContent = e.target.value.toUpperCase();
-                });
-            });
-        }
-
-        // Registration Submission
-        function completeRegistration() {
-            if (!verifiedCode) {
-                showToast("Session expired. Please verify passcode.", "error");
-                lockPortal();
-                return;
-            }
-
-            const fullName = document.getElementById('fullName').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const idNumber = document.getElementById('idNumber').value.trim() || 'N/A';
-            const dob = document.getElementById('dob').value;
-            const age = document.getElementById('age').value;
-            const selectedRole = document.querySelector('input[name="playerRole"]:checked').value;
-            const battingStyle = document.getElementById('battingStyle').value;
-            const bowlingStyle = document.getElementById('bowlingStyle').value;
-            const jerseyNumber = document.getElementById('jerseyNumber').value;
-            const jerseySize = document.getElementById('jerseySize').value;
-
-            const regID = `JPL7-REG-${Math.floor(1000 + Math.random() * 9000)}`;
-            const nowFormatted = new Date().toISOString().slice(0, 16).replace('T', ' ');
-
-            // Mark Passcode as USED
-            const otpObj = otps.find(o => o.code === verifiedCode);
+            const otpObj = appState.otps.find(o => o.code === inputCode && o.status === 'ACTIVE');
             if (otpObj) {
-                otpObj.status = 'used';
-                otpObj.assignedPlayer = fullName;
+                appState.verifiedCode = inputCode;
+                handleRegistrationTabAccess();
+            } else {
+                errorMsg.innerText = "Invalid or expired passcode! Please ask the admin for a valid code.";
+                errorMsg.classList.remove('hidden');
             }
+        }
 
-            // Save Player
-            players.unshift({
-                regID,
-                code: verifiedCode,
-                fullName,
+        // LIVE JERSEY PREVIEW SYNC
+        function updateJerseyPreview() {
+            const name = document.getElementById('reg-fullname').value.trim() || "PLAYER NAME";
+            const num = document.getElementById('reg-jersey-num').value || "18";
+            const role = document.querySelector('input[name="player-role"]:checked')?.value || "BATSMAN";
+            const batting = document.getElementById('reg-batting').value;
+            const bowling = document.getElementById('reg-bowling').value;
+            const size = document.getElementById('reg-jersey-size').value;
+
+            document.getElementById('preview-name').innerText = name.toUpperCase();
+            document.getElementById('preview-number').innerText = num;
+            document.getElementById('preview-role-badge').innerText = role.toUpperCase();
+            document.getElementById('preview-size').innerText = `Size: ${size}`;
+            
+            const battingShort = batting.includes('Right') ? 'RHB' : 'LHB';
+            const bowlingShort = bowling.includes('Right') ? 'RMF' : 'LMF';
+            document.getElementById('preview-style').innerText = `${battingShort} • ${bowlingShort}`;
+        }
+
+        function submitRegistration() {
+            if (!appState.verifiedCode) return;
+
+            const name = document.getElementById('reg-fullname').value.trim();
+            const phone = document.getElementById('reg-phone').value.trim();
+            const nid = document.getElementById('reg-nid').value.trim() || 'N/A';
+            const role = document.querySelector('input[name="player-role"]:checked').value;
+            const batting = document.getElementById('reg-batting').value;
+            const bowling = document.getElementById('reg-bowling').value;
+            const number = document.getElementById('reg-jersey-num').value;
+            const size = document.getElementById('reg-jersey-size').value;
+
+            const regId = `JPL7-2026-${String(appState.players.length + 1).padStart(4, '0')}`;
+
+            const newPlayer = {
+                regId,
+                name,
                 phone,
-                idNumber,
-                dob,
-                age,
-                role: selectedRole,
-                battingStyle,
-                bowlingStyle,
-                jerseySize,
-                jerseyNumber,
-                registeredAt: nowFormatted
-            });
+                nid,
+                role,
+                batting,
+                bowling,
+                number,
+                size,
+                passcodeUsed: appState.verifiedCode,
+                date: new Date().toLocaleDateString()
+            };
+
+            appState.players.push(newPlayer);
+
+            // Mark OTP as used
+            const otpObj = appState.otps.find(o => o.code === appState.verifiedCode);
+            if (otpObj) otpObj.status = 'USED';
 
             saveState();
-            renderAdminTables();
-            updateAnalytics();
+            renderAdminOTPs();
+            renderAdminRoster();
 
-            // Populate Modal
-            document.getElementById('modal-reg-id').textContent = regID;
-            document.getElementById('modal-player-name').textContent = fullName;
-            document.getElementById('modal-phone').textContent = phone;
-            document.getElementById('modal-role').textContent = selectedRole;
-            document.getElementById('modal-jersey').textContent = `#${jerseyNumber} (${jerseySize})`;
+            // Populate Modal Receipt
+            document.getElementById('receipt-reg-id').innerText = regId;
+            document.getElementById('receipt-name').innerText = name;
+            document.getElementById('receipt-role').innerText = role;
+            document.getElementById('receipt-number').innerText = `#${number} (Size: ${size})`;
+            document.getElementById('receipt-phone').innerText = phone;
+            document.getElementById('receipt-modal').classList.remove('hidden');
 
-            // Open Modal
-            const modal = document.getElementById('confirmation-modal');
-            modal.classList.remove('pointer-events-none', 'opacity-0');
-            modal.classList.add('opacity-100');
+            // Reset Form State
+            appState.verifiedCode = null;
+            document.getElementById('form-player-registration').reset();
         }
 
-        function closeModal() {
-            const modal = document.getElementById('confirmation-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.classList.remove('opacity-100');
+        function closeReceiptModal() {
+            document.getElementById('receipt-modal').classList.add('hidden');
+            switchTab('home');
         }
 
-        function closeModalAndLock() {
-            closeModal();
-            document.getElementById('jpl-registration-form').reset();
-            lockPortal();
-        }
+        // ADMIN ACCESS & CONTROLS
+        function verifyAdminPin() {
+            const inputPin = document.getElementById('admin-pin-input').value.trim();
+            const errorDiv = document.getElementById('admin-pin-error');
+            errorDiv.classList.add('hidden');
 
-        // Unlock Admin Center (Security PIN: 22902276)
-        function unlockAdmin() {
-            const pin = document.getElementById('admin-pin-input').value.trim();
-            const err = document.getElementById('admin-pin-error');
-
-            if (pin === '22902276') {
-                isAdminUnlocked = true;
-                err.classList.add('hidden');
-                document.getElementById('admin-pin-gate').classList.add('hidden');
-                document.getElementById('admin-dashboard').classList.remove('hidden');
-                showToast("Admin access granted.", "success");
+            if (inputPin === ADMIN_PIN) {
+                appState.isAdminUnlocked = true;
+                document.getElementById('admin-pin-screen').classList.add('hidden');
+                document.getElementById('admin-dashboard-view').classList.remove('hidden');
             } else {
-                err.classList.remove('hidden');
-                showToast("Incorrect Admin PIN.", "error");
+                errorDiv.innerText = "Incorrect Admin Security PIN!";
+                errorDiv.classList.remove('hidden');
             }
         }
 
-        // Generate Passcode
-        function generatePasscode() {
-            const customInput = document.getElementById('custom-otp-code').value.trim().toUpperCase();
+        function lockAdminPanel() {
+            appState.isAdminUnlocked = false;
+            document.getElementById('admin-pin-input').value = '';
+            document.getElementById('admin-dashboard-view').classList.add('hidden');
+            document.getElementById('admin-pin-screen').classList.remove('hidden');
+        }
+
+        function switchAdminTab(subTabId) {
+            document.querySelectorAll('#admin-dashboard-view > div[id^="admin-sub-"]').forEach(div => div.classList.add('hidden'));
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.classList.remove('bg-jpl-gold', 'text-slate-950'));
+
+            const targetDiv = document.getElementById(`admin-sub-${subTabId}`);
+            if (targetDiv) targetDiv.classList.remove('hidden');
+
+            const tabBtn = document.getElementById(`admin-tab-${subTabId}`);
+            if (tabBtn) tabBtn.classList.add('bg-jpl-gold', 'text-slate-950');
+        }
+
+        // ADMIN: OTP GENERATOR
+        function generateNewOTP() {
+            const customInput = document.getElementById('admin-custom-otp').value.trim().toUpperCase();
             let newCode = customInput;
 
             if (!newCode) {
@@ -1033,204 +1131,35 @@
                 newCode = `JPL7-${randomPart}`;
             }
 
-            if (otps.some(o => o.code === newCode)) {
-                showToast("Passcode already exists!", "error");
-                return;
-            }
-
-            otps.unshift({ code: newCode, status: 'active', assignedPlayer: null });
-            document.getElementById('custom-otp-code').value = '';
-            saveState();
-            renderAdminTables();
-            updateAnalytics();
-            showToast(`Passcode ${newCode} generated!`, "success");
-        }
-
-        // Toggle Status or Revoke Code
-        function toggleCodeStatus(code) {
-            const item = otps.find(o => o.code === code);
-            if (item) {
-                if (item.status === 'active') item.status = 'revoked';
-                else if (item.status === 'revoked') item.status = 'active';
-                saveState();
-                renderAdminTables();
-                updateAnalytics();
-            }
-        }
-
-        // Copy Access Link
-        function copyLink(code) {
-            const baseUrl = window.location.origin + window.location.pathname;
-            const fullLink = `${baseUrl}?code=${code}`;
-
-            const textarea = document.createElement('textarea');
-            textarea.value = fullLink;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            showToast("Access link copied to clipboard!", "success");
-        }
-
-        // Delete Player Prompt
-        function promptDeletePlayer(regID) {
-            const player = players.find(p => p.regID === regID);
-            if (!player) return;
-
-            playerToDelete = player;
-            document.getElementById('delete-player-name').textContent = player.fullName;
-            document.getElementById('delete-player-code').textContent = player.code;
-
-            const modal = document.getElementById('delete-modal');
-            modal.classList.remove('pointer-events-none', 'opacity-0');
-            modal.classList.add('opacity-100');
-        }
-
-        function closeDeleteModal() {
-            playerToDelete = null;
-            const modal = document.getElementById('delete-modal');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modal.classList.remove('opacity-100');
-        }
-
-        // Confirm Remove Player
-        function confirmRemovePlayer() {
-            if (!playerToDelete) return;
-
-            const shouldReactivate = document.getElementById('delete-reactivate-otp').checked;
-            const codeToUpdate = playerToDelete.code;
-
-            players = players.filter(p => p.regID !== playerToDelete.regID);
-
-            const otpObj = otps.find(o => o.code === codeToUpdate);
-            if (otpObj) {
-                if (shouldReactivate) {
-                    otpObj.status = 'active';
-                    otpObj.assignedPlayer = null;
-                } else {
-                    otpObj.assignedPlayer = '(Removed)';
-                }
-            }
-
-            saveState();
-            renderAdminTables();
-            updateAnalytics();
-            closeDeleteModal();
-            showToast("Player registration successfully removed.", "success");
-        }
-
-        // Filter Player Roster
-        function filterPlayerList() {
-            renderPlayersTable();
-        }
-
-        // Render Admin Tables
-        function renderAdminTables() {
-            renderPasscodesTable();
-            renderPlayersTable();
-            lucide.createIcons();
-        }
-
-        function renderPasscodesTable() {
-            const tbody = document.getElementById('otp-table-body');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-
-            otps.forEach(o => {
-                let badgeClass = "bg-emerald-500/20 text-emerald-400 border-emerald-500/40";
-                if (o.status === 'used') badgeClass = "bg-amber-500/20 text-amber-300 border-amber-500/40";
-                if (o.status === 'revoked') badgeClass = "bg-rose-500/20 text-rose-400 border-rose-500/40";
-
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/50 transition-colors";
-                tr.innerHTML = `
-                    <td class="p-3.5 font-bold text-white">${o.code}</td>
-                    <td class="p-3.5">
-                        <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${badgeClass}">
-                            ${o.status}
-                        </span>
-                    </td>
-                    <td class="p-3.5 text-slate-300">${o.assignedPlayer || '--'}</td>
-                    <td class="p-3.5 text-right space-x-2">
-                        ${o.status === 'active' ? `
-                            <button onclick="copyLink('${o.code}')" class="px-2.5 py-1 bg-jpl-accent border border-jpl-gold/40 text-jpl-gold rounded hover:bg-jpl-gold hover:text-slate-950 transition-all cursor-pointer">
-                                Copy Link
-                            </button>
-                            <button onclick="toggleCodeStatus('${o.code}')" class="px-2.5 py-1 bg-rose-500/20 border border-rose-500/40 text-rose-400 rounded hover:bg-rose-500 hover:text-white transition-all cursor-pointer">
-                                Revoke
-                            </button>
-                        ` : o.status === 'revoked' ? `
-                            <button onclick="toggleCodeStatus('${o.code}')" class="px-2.5 py-1 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded hover:bg-emerald-500 hover:text-white transition-all cursor-pointer">
-                                Re-activate
-                            </button>
-                        ` : `<span class="text-slate-500 italic">Used</span>`}
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function renderPlayersTable() {
-            const tbody = document.getElementById('players-table-body');
-            if (!tbody) return;
-            tbody.innerHTML = '';
-
-            const searchQuery = (document.getElementById('player-search-input')?.value || '').toLowerCase();
-            const roleFilter = document.getElementById('player-filter-role')?.value || 'ALL';
-
-            const filtered = players.filter(p => {
-                const matchesSearch = p.fullName.toLowerCase().includes(searchQuery) ||
-                                      p.regID.toLowerCase().includes(searchQuery) ||
-                                      p.phone.toLowerCase().includes(searchQuery) ||
-                                      p.code.toLowerCase().includes(searchQuery);
-
-                const matchesRole = roleFilter === 'ALL' || p.role === roleFilter;
-
-                return matchesSearch && matchesRole;
+            appState.otps.push({
+                code: newCode,
+                status: 'ACTIVE',
+                created: new Date().toLocaleDateString()
             });
 
-            const countElem = document.getElementById('showing-players-count');
-            const badgeElem = document.getElementById('player-count-badge');
-            if (countElem) countElem.textContent = `Showing ${filtered.length} of ${players.length} players`;
-            if (badgeElem) badgeElem.textContent = players.length;
+            document.getElementById('admin-custom-otp').value = '';
+            saveState();
+            renderAdminOTPs();
+        }
 
-            if (filtered.length === 0) {
-                tbody.innerHTML = `
-                    <tr>
-                        <td colspan="6" class="p-6 text-center text-slate-500 italic">
-                            No registered players matching criteria.
-                        </td>
-                    </tr>
-                `;
-                return;
-            }
+        function renderAdminOTPs() {
+            const tbody = document.getElementById('admin-otps-table-body');
+            tbody.innerHTML = '';
 
-            filtered.forEach(p => {
+            appState.otps.forEach(otp => {
                 const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/50 transition-colors";
+                tr.className = "hover:bg-slate-900/50 transition-colors";
                 tr.innerHTML = `
-                    <td class="p-3.5">
-                        <span class="font-mono font-bold text-jpl-gold block">${p.regID}</span>
-                        <span class="text-[10px] text-slate-400 block">${p.registeredAt || 'N/A'}</span>
+                    <td class="p-4 font-mono font-bold text-jpl-gold">${otp.code}</td>
+                    <td class="p-4 text-slate-400">${otp.created}</td>
+                    <td class="p-4">
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                            otp.status === 'ACTIVE' ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-slate-800 text-slate-400'
+                        }">${otp.status}</span>
                     </td>
-                    <td class="p-3.5">
-                        <span class="font-bold text-white block uppercase">${p.fullName}</span>
-                        <span class="text-[11px] text-slate-400 block">${p.phone} • Age ${p.age}</span>
-                    </td>
-                    <td class="p-3.5">
-                        <span class="font-semibold text-jpl-cyan block">${p.role}</span>
-                    </td>
-                    <td class="p-3.5 font-mono text-slate-300">
-                        No. <strong class="text-white">${p.jerseyNumber}</strong> (${p.jerseySize})
-                        <span class="text-[10px] text-slate-400 block">${p.battingStyle}</span>
-                    </td>
-                    <td class="p-3.5 font-mono text-amber-300">${p.code}</td>
-                    <td class="p-3.5 text-right">
-                        <button onclick="promptDeletePlayer('${p.regID}')" 
-                            class="px-2.5 py-1.5 bg-rose-500/10 border border-rose-500/30 text-rose-400 hover:bg-rose-500 hover:text-white rounded-lg transition-all text-xs inline-flex items-center gap-1.5 ml-auto cursor-pointer">
-                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                            <span>Remove</span>
+                    <td class="p-4 text-right">
+                        <button onclick="copyInviteLink('${otp.code}')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-[10px] font-bold">
+                            <i class="fa-solid fa-copy mr-1"></i> Copy Link
                         </button>
                     </td>
                 `;
@@ -1238,60 +1167,283 @@
             });
         }
 
-        // Update Analytics Stats
-        function updateAnalytics() {
-            const tot = document.getElementById('stat-total');
-            const act = document.getElementById('stat-active');
-            const usd = document.getElementById('stat-used');
-            const ply = document.getElementById('stat-players');
-
-            if (tot) tot.textContent = otps.length;
-            if (act) act.textContent = otps.filter(o => o.status === 'active').length;
-            if (usd) usd.textContent = otps.filter(o => o.status === 'used').length;
-            if (ply) ply.textContent = players.length;
+        function copyInviteLink(code) {
+            const link = `${window.location.origin}${window.location.pathname}?code=${code}`;
+            navigator.clipboard.writeText(link);
+            alert(`Invite link copied to clipboard:\n${link}`);
         }
 
-        function clearAllData() {
-            if (confirm("Reset all generated passcodes and player entries to default state?")) {
-                localStorage.removeItem(STORAGE_KEY_OTPS);
-                localStorage.removeItem(STORAGE_KEY_PLAYERS);
-                otps = [...defaultOTPs];
-                players = [...defaultPlayers];
+        // ADMIN: ROSTER MANAGEMENT & DELETION
+        function renderAdminRoster() {
+            const tbody = document.getElementById('admin-roster-table-body');
+            const search = document.getElementById('admin-roster-search').value.toLowerCase();
+            tbody.innerHTML = '';
+
+            const filtered = appState.players.filter(p => 
+                p.name.toLowerCase().includes(search) || p.phone.includes(search)
+            );
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-500">No registered players found.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-900/50 transition-colors";
+                tr.innerHTML = `
+                    <td class="p-4 font-mono font-bold text-amber-400">${p.regId}</td>
+                    <td class="p-4 font-bold text-white">${p.name}</td>
+                    <td class="p-4 text-slate-300">${p.phone}</td>
+                    <td class="p-4 text-slate-400">${p.role}</td>
+                    <td class="p-4 font-mono font-bold text-jpl-gold">#${p.number}</td>
+                    <td class="p-4 font-mono text-slate-400">${p.passcodeUsed}</td>
+                    <td class="p-4 text-right">
+                        <button onclick="deletePlayer('${p.regId}')" class="px-3 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/30 rounded-lg text-[10px] font-bold transition-all">
+                            <i class="fa-solid fa-trash mr-1"></i> Remove
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function deletePlayer(regId) {
+            if (!confirm(`Are you sure you want to remove player registration ${regId}?`)) return;
+
+            const player = appState.players.find(p => p.regId === regId);
+            if (player) {
+                // Optionally reactivate passcode
+                const otpObj = appState.otps.find(o => o.code === player.passcodeUsed);
+                if (otpObj && confirm("Reactivate the passcode used by this player?")) {
+                    otpObj.status = 'ACTIVE';
+                }
+            }
+
+            appState.players = appState.players.filter(p => p.regId !== regId);
+            saveState();
+            renderAdminOTPs();
+            renderAdminRoster();
+        }
+
+        // ADMIN: MASTER SETTINGS & COMMITTEE/PAST RECORD MANAGERS
+        function setRegistrationStatus(active) {
+            appState.registrationActive = active;
+            const badge = document.getElementById('admin-reg-status-badge');
+            badge.innerText = active ? "ACTIVE" : "COMING SOON MODE";
+            badge.className = `px-3 py-1 rounded-full text-xs font-bold uppercase ${
+                active ? 'bg-emerald-500/10 text-emerald-400' : 'bg-amber-500/10 text-amber-400'
+            }`;
+            alert(`Registration status updated to: ${active ? 'ACTIVE' : 'COMING SOON MODE'}`);
+        }
+
+        function addCommitteeMember() {
+            const name = document.getElementById('comm-name').value.trim();
+            const role = document.getElementById('comm-role').value.trim();
+            const phone = document.getElementById('comm-phone').value.trim() || 'N/A';
+            const photo = document.getElementById('comm-photo').value.trim() || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150';
+
+            appState.committee.push({ id: Date.now(), name, role, phone, photo });
+            saveState();
+            renderCommittee();
+            document.getElementById('form-add-committee').reset();
+            alert("Committee member added successfully!");
+        }
+
+        function renderCommittee() {
+            const grid = document.getElementById('committee-grid');
+            grid.innerHTML = '';
+
+            appState.committee.forEach(c => {
+                const card = document.createElement('div');
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-5 text-center space-y-3 hover:border-slate-700 transition-colors";
+                card.innerHTML = `
+                    <img src="${c.photo}" alt="${c.name}" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-jpl-gold/40 shadow-md">
+                    <div>
+                        <div class="text-base font-bold text-white">${c.name}</div>
+                        <div class="text-xs text-jpl-gold font-semibold uppercase tracking-wider">${c.role}</div>
+                    </div>
+                    <div class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-phone text-[10px] mr-1"></i> ${c.phone}</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function addPastSeasonRecord() {
+            const season = document.getElementById('past-season-name').value.trim();
+            const champion = document.getElementById('past-champion').value.trim();
+            const runnerup = document.getElementById('past-runnerup').value.trim() || 'N/A';
+            const mvp = document.getElementById('past-mvp').value.trim() || 'N/A';
+            const year = document.getElementById('past-year').value.trim() || '2025';
+
+            appState.pastSeasons.push({ season, year, champion, runnerup, mvp });
+            saveState();
+            renderPastSeasons();
+            document.getElementById('form-add-past-season').reset();
+            alert("Past season record added successfully!");
+        }
+
+        function renderPastSeasons() {
+            const grid = document.getElementById('past-seasons-grid');
+            grid.innerHTML = '';
+
+            appState.pastSeasons.forEach(s => {
+                const card = document.createElement('div');
+                card.className = "bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden";
+                card.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <span class="text-xs font-bold text-jpl-gold uppercase">${s.year}</span>
+                        <h3 class="text-xl font-heading font-bold text-white">${s.season}</h3>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between bg-amber-500/10 p-2.5 rounded-xl border border-amber-500/20">
+                            <span class="text-slate-400 font-semibold">CHAMPIONS:</span>
+                            <span class="text-jpl-gold font-extrabold">${s.champion}</span>
+                        </div>
+                        <div class="flex justify-between p-2">
+                            <span class="text-slate-400">Runners-Up:</span>
+                            <span class="text-slate-200 font-bold">${s.runnerup}</span>
+                        </div>
+                        <div class="flex justify-between p-2">
+                            <span class="text-slate-400">Tournament MVP:</span>
+                            <span class="text-amber-300 font-bold">${s.mvp}</span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // ADMIN: LIVE MATCH SCORER ENGINE
+        function launchMatchScorer() {
+            const teamA = document.getElementById('scorer-setup-teama').value.trim() || "Team Alpha";
+            const teamB = document.getElementById('scorer-setup-teamb').value.trim() || "Team Strikers";
+            const overs = parseInt(document.getElementById('scorer-setup-overs').value) || 10;
+
+            appState.liveMatch = {
+                teamA,
+                teamB,
+                runs: 0,
+                wickets: 0,
+                overs: 0,
+                balls: 0,
+                maxOvers: overs,
+                target: null,
+                extras: 0,
+                striker: 'Player 1',
+                strikerRuns: 0,
+                nonStriker: 'Player 2',
+                nonStrikerRuns: 0,
+                bowler: 'Bowler 1',
+                bowlerOvers: 0,
+                bowlerRuns: 0,
+                bowlerWickets: 0,
+                commentary: []
+            };
+
+            saveState();
+            updateLiveMatchUI();
+            alert("Live match initialized successfully!");
+        }
+
+        function recordBall(runs, isExtra = false) {
+            let lm = appState.liveMatch;
+            lm.runs += runs;
+            lm.strikerRuns += runs;
+
+            if (!isExtra) {
+                lm.balls++;
+                if (lm.balls === 6) {
+                    lm.overs++;
+                    lm.balls = 0;
+                    // Rotate strike on over end
+                    swapStriker();
+                } else if (runs % 2 !== 0) {
+                    swapStriker();
+                }
+            }
+
+            lm.commentary.unshift(`Ball ${lm.overs}.${lm.balls}: ${runs} Run(s) scored by ${lm.striker}`);
+            saveState();
+            updateLiveMatchUI();
+        }
+
+        function recordWicket() {
+            let lm = appState.liveMatch;
+            lm.wickets++;
+            lm.balls++;
+            if (lm.balls === 6) {
+                lm.overs++;
+                lm.balls = 0;
+            }
+            lm.commentary.unshift(`WICKET! Wicket fallen at ${lm.overs}.${lm.balls} overs.`);
+            saveState();
+            updateLiveMatchUI();
+        }
+
+        function recordExtra(type) {
+            let lm = appState.liveMatch;
+            lm.runs += 1;
+            lm.extras += 1;
+            lm.commentary.unshift(`EXTRA! ${type} bowled (+1 Run).`);
+            saveState();
+            updateLiveMatchUI();
+        }
+
+        function undoLastBall() {
+            if (appState.liveMatch.commentary.length > 0) {
+                appState.liveMatch.commentary.shift();
                 saveState();
-                renderAdminTables();
-                updateAnalytics();
-                showToast("System reset to defaults.", "success");
+                updateLiveMatchUI();
             }
         }
 
-        // Notification Toasts
-        function showToast(message, type = "success") {
-            const container = document.getElementById('toast-container');
-            if (!container) return;
-            
-            const toast = document.createElement('div');
-            const isSuccess = type === 'success';
+        function swapStriker() {
+            let temp = appState.liveMatch.striker;
+            appState.liveMatch.striker = appState.liveMatch.nonStriker;
+            appState.liveMatch.nonStriker = temp;
 
-            toast.className = `p-3 px-4 rounded-xl text-xs font-bold shadow-2xl flex items-center gap-2 border pointer-events-auto transition-all transform translate-y-2 opacity-0 ${
-                isSuccess ? 'bg-emerald-950 border-emerald-500 text-emerald-300' : 'bg-rose-950 border-rose-500 text-rose-300'
-            }`;
+            let tempRuns = appState.liveMatch.strikerRuns;
+            appState.liveMatch.strikerRuns = appState.liveMatch.nonStrikerRuns;
+            appState.liveMatch.nonStrikerRuns = tempRuns;
+        }
 
-            toast.innerHTML = `
-                <i data-lucide="${isSuccess ? 'check-circle-2' : 'alert-triangle'}" class="w-4 h-4 ${isSuccess ? 'text-emerald-400' : 'text-rose-400'}"></i>
-                <span>${message}</span>
-            `;
+        function updateLiveMatchUI() {
+            let lm = appState.liveMatch;
 
-            container.appendChild(toast);
-            lucide.createIcons();
+            // Public Live Score tab elements
+            document.getElementById('live-team-a').innerText = lm.teamA;
+            document.getElementById('live-team-b').innerText = lm.teamB;
+            document.getElementById('live-score-display').innerText = `${lm.runs} / ${lm.wickets}`;
+            document.getElementById('live-overs-display').innerText = `Overs: ${lm.overs}.${lm.balls} / ${lm.maxOvers || 10}.0`;
+            document.getElementById('live-striker').innerText = `Striker: * ${lm.striker}`;
+            document.getElementById('live-striker-runs').innerText = `${lm.strikerRuns} runs`;
+            document.getElementById('live-nonstriker').innerText = `Non-Striker: ${lm.nonStriker}`;
+            document.getElementById('live-nonstriker-runs').innerText = `${lm.nonStrikerRuns} runs`;
 
-            requestAnimationFrame(() => {
-                toast.classList.remove('translate-y-2', 'opacity-0');
-            });
+            // Home tab live match teaser
+            document.getElementById('home-batting-team').innerText = lm.teamA;
+            document.getElementById('home-match-score').innerText = `${lm.runs} / ${lm.wickets}`;
+            document.getElementById('home-match-overs').innerText = `Overs: ${lm.overs}.${lm.balls}`;
 
-            setTimeout(() => {
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+            // Render commentary
+            const commList = document.getElementById('live-commentary-list');
+            if (commList) {
+                if (lm.commentary.length === 0) {
+                    commList.innerHTML = `<div class="text-center py-6 text-slate-500 text-xs">No commentary logs yet for this match.</div>`;
+                } else {
+                    commList.innerHTML = lm.commentary.map(c => `
+                        <div class="bg-slate-900/60 p-2.5 rounded-xl border border-slate-800 text-xs text-slate-300">
+                            <i class="fa-solid fa-angle-right text-jpl-gold mr-1"></i> ${c}
+                        </div>
+                    `).join('');
+                }
+            }
+        }
+
+        function updateStatsCounters() {
+            document.getElementById('home-stat-players').innerText = appState.players.length;
+            document.getElementById('home-stat-otps').innerText = appState.otps.length;
         }
     </script>
 </body>
