@@ -20,8 +20,8 @@
                             navy: '#0b132b',
                             dark: '#1c2541',
                             blue: '#3a506b',
-                            gold: '#a3e635', // matching the lime/green-ish yellow from the logo
-                            accent: '#3b82f6', // blue from the logo shield
+                            gold: '#a3e635',
+                            accent: '#3b82f6',
                             card: '#151d36',
                             emerald: '#10b981'
                         }
@@ -115,7 +115,6 @@
 
         <!-- Mobile Drawer -->
         <div id="mobile-menu" class="hidden lg:hidden bg-jpl-card border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
-            <!-- (Mobile links mirror desktop links) -->
             <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-4 py-3 rounded-lg text-slate-200 hover:bg-slate-800 flex items-center gap-3 font-semibold text-sm">
                 <i class="fa-solid fa-house text-jpl-gold"></i> Home
             </button>
@@ -148,15 +147,11 @@
 
         <!-- ================= 1. HOME SECTION ================= -->
         <section id="sec-home" class="space-y-12 block">
-            <!-- Hero Banner -->
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-jpl-dark via-jpl-navy to-slate-900 border border-slate-800 shadow-2xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-                <!-- Background decoration -->
                 <div class="absolute -right-10 -bottom-10 opacity-5 text-slate-100 font-heading text-[260px] font-extrabold select-none pointer-events-none">JPL</div>
-                
                 <div class="flex-shrink-0 relative z-10 w-40 h-40 md:w-64 md:h-64">
                     <img id="brand-logo-hero" src="7a17025d0009d5d0dd6533260399c473.JPEG" alt="JPL Hero Logo" class="w-full h-full object-contain drop-shadow-2xl">
                 </div>
-
                 <div class="relative z-10 space-y-6 text-center md:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jpl-gold/10 border border-jpl-gold/30 text-jpl-gold text-xs font-bold uppercase tracking-widest">
                         <i class="fa-solid fa-bolt"></i> Official Tournament Hub
@@ -168,7 +163,7 @@
                         Welcome to the official digital hub of the Junior Premier League! Register your profile, track live scores, view match schedules, explore tournament history, and relive moments in our Memory Corner.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2 justify-center md:justify-start">
-                        <button onclick="switchTab('register')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-lime-500 text-slate-950 font-bold text-sm hover:shadow-lg hover:shadow-lime-500/25 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
+                        <button onclick="switchTab('register')" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-lime-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center gap-2">
                             <i class="fa-solid fa-id-card"></i> Player Registration
                         </button>
                         <button onclick="switchTab('live')" class="px-6 py-3.5 rounded-xl bg-slate-800 border border-slate-700 text-white font-bold text-sm hover:bg-slate-700 transition-all flex items-center gap-2">
@@ -178,171 +173,109 @@
                 </div>
             </div>
 
-            <!-- Stats Bar -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-lime-500/10 text-jpl-gold flex items-center justify-center text-lg font-bold">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-lime-500/10 text-jpl-gold flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-users"></i></div>
                     <div class="text-3xl font-heading font-bold text-white" id="home-stat-players">0</div>
                     <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Registered Players</div>
                 </div>
-
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg font-bold">
-                        <i class="fa-solid fa-calendar-check"></i>
-                    </div>
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-calendar-check"></i></div>
                     <div class="text-3xl font-heading font-bold text-white" id="home-stat-fixtures">0</div>
                     <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Scheduled Matches</div>
                 </div>
-
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg font-bold">
-                        <i class="fa-solid fa-camera-retro"></i>
-                    </div>
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-camera-retro"></i></div>
                     <div class="text-3xl font-heading font-bold text-white" id="home-stat-photos">0</div>
                     <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Memory Photos</div>
                 </div>
-
                 <div class="bg-jpl-card/80 border border-slate-800 rounded-2xl p-6 text-center">
-                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-lg font-bold">
-                        <i class="fa-solid fa-circle-dot animate-pulse"></i>
-                    </div>
+                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-circle-dot animate-pulse"></i></div>
                     <div class="text-3xl font-heading font-bold text-white text-sm mt-2" id="home-stat-status">INACTIVE</div>
                     <div class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider mt-1">Match Status</div>
                 </div>
             </div>
 
-            <!-- Highlights Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Live Score Teaser -->
                 <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20">
-                                <i class="fa-solid fa-tower-broadcast animate-pulse mr-1"></i> Match Center
-                            </span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-3 py-1 rounded-full border border-rose-500/20"><i class="fa-solid fa-tower-broadcast animate-pulse mr-1"></i> Match Center</span>
                             <span class="text-xs text-slate-400" id="home-match-overs">Overs: 0.0</span>
                         </div>
                         <div class="space-y-2">
                             <h3 class="text-2xl font-heading font-bold text-white" id="home-match-title">No Active Match</h3>
                             <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-                                <div>
-                                    <div class="text-[10px] text-slate-400 font-semibold uppercase">BATTING TEAM</div>
-                                    <div class="text-lg font-bold text-white" id="home-batting-team">--</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="text-3xl font-heading font-extrabold text-jpl-gold" id="home-match-score">0 / 0</div>
-                                </div>
+                                <div><div class="text-[10px] text-slate-400 font-semibold uppercase">BATTING TEAM</div><div class="text-lg font-bold text-white" id="home-batting-team">--</div></div>
+                                <div class="text-right"><div class="text-3xl font-heading font-extrabold text-jpl-gold" id="home-match-score">0 / 0</div></div>
                             </div>
                         </div>
                     </div>
-                    <button onclick="switchTab('live')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
-                        Open Match Hub <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
+                    <button onclick="switchTab('live')" class="mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">Open Match Hub <i class="fa-solid fa-arrow-right text-xs"></i></button>
                 </div>
 
-                <!-- Memory Corner Teaser -->
                 <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden">
-                    <!-- Faint background image from the logo or memory -->
-                    <div class="absolute -right-4 -bottom-4 opacity-10 w-48 h-48 pointer-events-none">
-                        <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-full h-full object-cover">
-                    </div>
+                    <div class="absolute -right-4 -bottom-4 opacity-10 w-48 h-48 pointer-events-none"><img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-full h-full object-cover"></div>
                     <div class="relative z-10 space-y-4">
                         <div class="flex items-center justify-between">
-                            <span class="text-xs font-bold uppercase tracking-widest text-jpl-accent bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
-                                <i class="fa-solid fa-image mr-1"></i> Gallery
-                            </span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-jpl-accent bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20"><i class="fa-solid fa-image mr-1"></i> Gallery</span>
                             <span class="text-xs text-slate-400">Highlights</span>
                         </div>
                         <h3 class="text-2xl font-heading font-bold text-white">Memory Corner</h3>
-                        <p class="text-slate-300 text-sm leading-relaxed max-w-sm">
-                            Relive the best moments! Explore photos of match action, celebrations, and trophy honors uploaded by the committee.
-                        </p>
+                        <p class="text-slate-300 text-sm leading-relaxed max-w-sm">Relive the best moments! Explore photos of match action, celebrations, and trophy honors uploaded by the committee.</p>
                     </div>
-                    <button onclick="switchTab('memory')" class="relative z-10 mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">
-                        View Photo Gallery <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
+                    <button onclick="switchTab('memory')" class="relative z-10 mt-6 w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl text-sm transition-all flex items-center justify-center gap-2">View Photo Gallery <i class="fa-solid fa-arrow-right text-xs"></i></button>
                 </div>
             </div>
         </section>
 
         <!-- ================= 2. REGISTRATION SECTION ================= -->
         <section id="sec-register" class="hidden space-y-8">
-            <!-- TEASER VIEW: REGISTRATION COMING SOON -->
             <div id="reg-coming-soon-view" class="hidden max-w-3xl mx-auto bg-jpl-card border border-lime-500/30 rounded-3xl p-8 md:p-12 text-center space-y-6 shadow-2xl relative overflow-hidden">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-24 h-24 mx-auto object-contain drop-shadow-xl animate-pulse">
                 <div class="space-y-2">
                     <span class="px-4 py-1.5 rounded-full bg-lime-500/10 text-jpl-gold border border-lime-500/30 text-xs font-bold uppercase tracking-widest">Notice</span>
                     <h2 class="text-4xl md:text-5xl font-heading font-bold text-white">REGISTRATION COMING SOON</h2>
-                    <p class="text-slate-300 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
-                        Player registration for <strong class="text-jpl-gold" id="teaser-season-name">Junior Premier League</strong> is currently closed. It will start once enabled by the tournament admin.
-                    </p>
+                    <p class="text-slate-300 max-w-lg mx-auto text-sm md:text-base leading-relaxed">Player registration for <strong class="text-jpl-gold" id="teaser-season-name">Junior Premier League</strong> is currently closed. It will start once enabled by the tournament admin.</p>
                 </div>
             </div>
 
-            <!-- GATEKEEPER VIEW: OTP -->
             <div id="reg-gatekeeper-view" class="hidden max-w-md mx-auto bg-jpl-card border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
                 <div class="text-center space-y-3">
                     <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-16 h-16 mx-auto object-contain">
                     <h2 class="text-3xl font-heading font-bold text-white">ENTER PASSCODE</h2>
                     <p class="text-xs text-slate-400">Registration requires a valid passcode issued by the admin.</p>
                 </div>
-
                 <form id="form-otp-gatekeeper" onsubmit="verifyPasscode(); return false;" class="space-y-4">
-                    <div>
-                        <input type="text" id="otp-input" placeholder="e.g. JPL-89A2" uppercase maxlength="12" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3.5 text-center text-xl font-mono font-bold tracking-widest text-jpl-gold focus:outline-none uppercase transition-all">
-                    </div>
-                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-lime-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2">
-                        Verify & Unlock Registration
-                    </button>
+                    <input type="text" id="otp-input" placeholder="e.g. JPL-89A2" uppercase maxlength="12" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-3.5 text-center text-xl font-mono font-bold tracking-widest text-jpl-gold focus:outline-none uppercase transition-all">
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-jpl-gold to-lime-500 text-slate-950 font-bold text-sm hover:shadow-lg transition-all flex items-center justify-center gap-2">Verify & Unlock Registration</button>
                 </form>
                 <div id="otp-error-msg" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold text-center"></div>
             </div>
 
-            <!-- MAIN REGISTRATION FORM -->
             <div id="reg-form-view" class="hidden space-y-8">
-                <!-- Verified Badge -->
                 <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-4 flex items-center justify-between">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold">
-                            <i class="fa-solid fa-shield-check"></i>
-                        </div>
-                        <div>
-                            <div class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Passcode Verified</div>
-                            <div class="text-slate-200 text-sm font-mono font-bold" id="display-verified-code">JPL-XXXX</div>
-                        </div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold"><i class="fa-solid fa-shield-check"></i></div>
+                        <div><div class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Passcode Verified</div><div class="text-slate-200 text-sm font-mono font-bold" id="display-verified-code">JPL-XXXX</div></div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    <!-- Form -->
                     <div class="lg:col-span-7 bg-jpl-card border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl space-y-6">
                         <div class="border-b border-slate-800 pb-4 flex items-center gap-4">
                             <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
-                            <div>
-                                <h2 class="text-3xl font-heading font-bold text-white uppercase" id="form-season-title">PLAYER REGISTRATION</h2>
-                                <p class="text-[10px] text-slate-400 uppercase tracking-widest">Complete profile to generate pass</p>
-                            </div>
+                            <div><h2 class="text-3xl font-heading font-bold text-white uppercase" id="form-season-title">PLAYER REGISTRATION</h2><p class="text-[10px] text-slate-400 uppercase tracking-widest">Complete profile to generate pass</p></div>
                         </div>
 
                         <form id="form-player-registration" onsubmit="submitRegistration(); return false;" class="space-y-6">
                             <div class="space-y-4">
                                 <h3 class="text-xs font-bold text-jpl-gold uppercase tracking-widest border-b border-slate-800 pb-1">1. Personal Info</h3>
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Full Name *</label>
-                                        <input type="text" id="reg-fullname" required oninput="updateJerseyPreview()" placeholder="Enter full name" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Phone Number *</label>
-                                        <input type="tel" id="reg-phone" required placeholder="017XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                    </div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Full Name *</label><input type="text" id="reg-fullname" required oninput="updateJerseyPreview()" placeholder="Enter full name" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"></div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Phone Number *</label><input type="tel" id="reg-phone" required placeholder="017XXXXXXXX" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"></div>
                                 </div>
-                                <div>
-                                    <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Birth Certificate / NID <span class="text-slate-500 font-normal lowercase">(optional)</span></label>
-                                    <input type="text" id="reg-nid" placeholder="Enter NID or Birth Cert # (Optional)" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                </div>
+                                <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Birth Certificate / NID <span class="text-slate-500 font-normal lowercase">(optional)</span></label><input type="text" id="reg-nid" placeholder="Enter NID or Birth Cert # (Optional)" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"></div>
                             </div>
 
                             <div class="space-y-4">
@@ -350,127 +283,46 @@
                                 <div>
                                     <label class="block text-[10px] font-semibold text-slate-400 mb-2 uppercase">Primary Player Role *</label>
                                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                                        <label class="cursor-pointer">
-                                            <input type="radio" name="player-role" value="Batsman" checked onchange="updateJerseyPreview()" class="peer sr-only">
-                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all">
-                                                <i class="fa-solid fa-cricket-bat-ball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
-                                                <span class="text-[10px] font-bold text-slate-300 block uppercase">Batsman</span>
-                                            </div>
-                                        </label>
-                                        <label class="cursor-pointer">
-                                            <input type="radio" name="player-role" value="Bowler" onchange="updateJerseyPreview()" class="peer sr-only">
-                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all">
-                                                <i class="fa-solid fa-baseball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
-                                                <span class="text-[10px] font-bold text-slate-300 block uppercase">Bowler</span>
-                                            </div>
-                                        </label>
-                                        <label class="cursor-pointer">
-                                            <input type="radio" name="player-role" value="All-Rounder" onchange="updateJerseyPreview()" class="peer sr-only">
-                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all">
-                                                <i class="fa-solid fa-bolt text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
-                                                <span class="text-[10px] font-bold text-slate-300 block uppercase">All-Rounder</span>
-                                            </div>
-                                        </label>
-                                        <label class="cursor-pointer">
-                                            <input type="radio" name="player-role" value="WK-Batsman" onchange="updateJerseyPreview()" class="peer sr-only">
-                                            <div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all">
-                                                <i class="fa-solid fa-mitten text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i>
-                                                <span class="text-[10px] font-bold text-slate-300 block uppercase">WK-Batsman</span>
-                                            </div>
-                                        </label>
+                                        <label class="cursor-pointer"><input type="radio" name="player-role" value="Batsman" checked onchange="updateJerseyPreview()" class="peer sr-only"><div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all"><i class="fa-solid fa-cricket-bat-ball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i><span class="text-[10px] font-bold text-slate-300 block uppercase">Batsman</span></div></label>
+                                        <label class="cursor-pointer"><input type="radio" name="player-role" value="Bowler" onchange="updateJerseyPreview()" class="peer sr-only"><div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all"><i class="fa-solid fa-baseball text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i><span class="text-[10px] font-bold text-slate-300 block uppercase">Bowler</span></div></label>
+                                        <label class="cursor-pointer"><input type="radio" name="player-role" value="All-Rounder" onchange="updateJerseyPreview()" class="peer sr-only"><div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all"><i class="fa-solid fa-bolt text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i><span class="text-[10px] font-bold text-slate-300 block uppercase">All-Rounder</span></div></label>
+                                        <label class="cursor-pointer"><input type="radio" name="player-role" value="WK-Batsman" onchange="updateJerseyPreview()" class="peer sr-only"><div class="p-3 bg-slate-900 border border-slate-700 peer-checked:border-jpl-gold peer-checked:bg-lime-500/10 rounded-xl text-center transition-all"><i class="fa-solid fa-mitten text-slate-400 peer-checked:text-jpl-gold text-lg mb-1 block"></i><span class="text-[10px] font-bold text-slate-300 block uppercase">WK-Batsman</span></div></label>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Batting Style *</label>
-                                        <select id="reg-batting" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                            <option value="Right Handed">Right Handed Batter</option>
-                                            <option value="Left Handed">Left Handed Batter</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Bowling Style *</label>
-                                        <select id="reg-bowling" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                            <option value="Right-arm Fast Medium">Right-arm Fast Medium</option>
-                                            <option value="Right-arm Spin">Right-arm Spin</option>
-                                            <option value="Left-arm Fast Medium">Left-arm Fast Medium</option>
-                                            <option value="Left-arm Spin">Left-arm Spin</option>
-                                            <option value="None">None</option>
-                                        </select>
-                                    </div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Batting Style *</label><select id="reg-batting" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"><option value="Right Handed">Right Handed Batter</option><option value="Left Handed">Left Handed Batter</option></select></div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Bowling Style *</label><select id="reg-bowling" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"><option value="Right-arm Fast Medium">Right-arm Fast Medium</option><option value="Right-arm Spin">Right-arm Spin</option><option value="Left-arm Fast Medium">Left-arm Fast Medium</option><option value="Left-arm Spin">Left-arm Spin</option><option value="None">None</option></select></div>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Preferred Jersey Number (1-99) *</label>
-                                        <input type="number" id="reg-jersey-num" required min="1" max="99" value="18" oninput="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none font-bold">
-                                    </div>
-                                    <div>
-                                        <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Jersey Size *</label>
-                                        <select id="reg-jersey-size" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none">
-                                            <option value="M">Medium (M)</option>
-                                            <option value="L">Large (L)</option>
-                                            <option value="XL">Extra Large (XL)</option>
-                                            <option value="XXL">XXL</option>
-                                            <option value="S">Small (S)</option>
-                                        </select>
-                                    </div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Jersey Number (1-99) *</label><input type="number" id="reg-jersey-num" required min="1" max="99" value="18" oninput="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none font-bold"></div>
+                                    <div><label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Jersey Size *</label><select id="reg-jersey-size" required onchange="updateJerseyPreview()" class="w-full bg-slate-900 border border-slate-700 focus:border-jpl-gold rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none"><option value="M">Medium (M)</option><option value="L">Large (L)</option><option value="XL">Extra Large (XL)</option><option value="XXL">XXL</option><option value="S">Small (S)</option></select></div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-jpl-gold via-lime-500 to-jpl-gold text-slate-950 font-extrabold text-sm hover:shadow-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wide">
-                                <i class="fa-solid fa-circle-check"></i> Submit & Issue Pass
-                            </button>
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-jpl-gold via-lime-500 to-jpl-gold text-slate-950 font-extrabold text-sm hover:shadow-xl transition-all flex items-center justify-center gap-2 uppercase tracking-wide"><i class="fa-solid fa-circle-check"></i> Submit & Issue Pass</button>
                         </form>
                     </div>
 
-                    <!-- Live Jersey Preview Card -->
                     <div class="lg:col-span-5 bg-jpl-card border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4 lg:sticky lg:top-28">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                            <h3 class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest flex items-center gap-2">
-                                <i class="fa-solid fa-shirt"></i> Live Kit Preview
-                            </h3>
+                            <h3 class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest flex items-center gap-2"><i class="fa-solid fa-shirt"></i> Live Kit Preview</h3>
                             <span class="text-[10px] bg-slate-800 px-2.5 py-1 rounded-full text-slate-400 uppercase font-bold">Official JPL Kit</span>
                         </div>
-
                         <div class="jersey-shadow relative w-full aspect-[4/5] bg-gradient-to-b from-jpl-dark via-jpl-navy to-slate-950 rounded-2xl border-2 border-jpl-gold/40 p-6 flex flex-col justify-between overflow-hidden">
-                            <!-- Background Logo Watermark -->
-                            <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                                <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-64 h-64 object-contain">
-                            </div>
-
+                            <div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none"><img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-64 h-64 object-contain"></div>
                             <div class="relative z-10 flex items-start justify-between">
-                                <div class="flex gap-2 items-center">
-                                    <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-8 h-8 object-contain">
-                                    <div>
-                                        <span class="text-[9px] font-bold uppercase tracking-widest text-lime-400 block" id="jersey-season-badge">SEASON</span>
-                                        <span class="font-heading text-lg font-extrabold tracking-wider text-white leading-none">JPL</span>
-                                    </div>
-                                </div>
-                                <div class="px-2 py-0.5 rounded bg-slate-900/80 border border-lime-500/30 text-[9px] font-bold text-lime-300 uppercase" id="preview-role-badge">
-                                    BATSMAN
-                                </div>
+                                <div class="flex gap-2 items-center"><img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-8 h-8 object-contain"><div><span class="text-[9px] font-bold uppercase tracking-widest text-lime-400 block" id="jersey-season-badge">SEASON</span><span class="font-heading text-lg font-extrabold tracking-wider text-white leading-none">JPL</span></div></div>
+                                <div class="px-2 py-0.5 rounded bg-slate-900/80 border border-lime-500/30 text-[9px] font-bold text-lime-300 uppercase" id="preview-role-badge">BATSMAN</div>
                             </div>
-
                             <div class="relative z-10 text-center my-auto space-y-1">
-                                <div class="font-heading text-8xl md:text-9xl font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-lime-300 via-jpl-gold to-lime-600 drop-shadow-2xl" id="preview-number">
-                                    18
-                                </div>
-                                <div class="font-heading text-2xl md:text-3xl font-extrabold uppercase tracking-widest text-white truncate px-2" id="preview-name">
-                                    PLAYER NAME
-                                </div>
+                                <div class="font-heading text-8xl md:text-9xl font-extrabold leading-none text-transparent bg-clip-text bg-gradient-to-b from-lime-300 via-jpl-gold to-lime-600 drop-shadow-2xl" id="preview-number">18</div>
+                                <div class="font-heading text-2xl md:text-3xl font-extrabold uppercase tracking-widest text-white truncate px-2" id="preview-name">PLAYER NAME</div>
                             </div>
-
                             <div class="relative z-10 bg-slate-900/90 rounded-xl p-3 border border-slate-800 flex items-center justify-between text-[11px] text-slate-300">
-                                <div>
-                                    <span class="text-slate-500 block text-[8px] font-semibold uppercase">Style</span>
-                                    <span class="font-bold text-white text-[10px]" id="preview-style">RHB • RMF</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-slate-500 block text-[8px] font-semibold uppercase">Size</span>
-                                    <span class="font-bold text-jpl-gold text-[10px]" id="preview-size">Size: M</span>
-                                </div>
+                                <div><span class="text-slate-500 block text-[8px] font-semibold uppercase">Style</span><span class="font-bold text-white text-[10px]" id="preview-style">RHB • RMF</span></div>
+                                <div class="text-right"><span class="text-slate-500 block text-[8px] font-semibold uppercase">Size</span><span class="font-bold text-jpl-gold text-[10px]" id="preview-size">Size: M</span></div>
                             </div>
                         </div>
                     </div>
@@ -483,28 +335,20 @@
             <div id="live-inactive-card" class="bg-jpl-card border border-slate-800 rounded-3xl p-12 text-center space-y-4">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-20 h-20 mx-auto object-contain opacity-50 grayscale">
                 <h2 class="text-3xl font-heading font-bold text-white uppercase">No Active Match Right Now</h2>
-                <p class="text-xs text-slate-400 max-w-md mx-auto">
-                    Live scorecard updates will appear here once the tournament admin launches a match.
-                </p>
+                <p class="text-xs text-slate-400 max-w-md mx-auto">Live scorecard updates will appear here once the tournament admin launches a match.</p>
             </div>
 
             <div id="live-active-card" class="hidden bg-jpl-card border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl space-y-6">
-                <!-- Header with Logo -->
                 <div class="flex items-center gap-4 border-b border-slate-800 pb-4">
                     <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
                     <div>
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
-                            <i class="fa-solid fa-circle text-[6px] animate-pulse mr-1"></i> Live Score
-                        </span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20"><i class="fa-solid fa-circle text-[6px] animate-pulse mr-1"></i> Live Score</span>
                         <h2 class="text-2xl font-heading font-bold text-white mt-1 uppercase" id="ch-season-title">JUNIOR PREMIER LEAGUE</h2>
                     </div>
                 </div>
 
                 <div class="bg-gradient-to-r from-slate-900 via-jpl-dark to-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4 relative overflow-hidden">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none">
-                        <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-64 h-64 object-contain">
-                    </div>
-
+                    <div class="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none"><img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-64 h-64 object-contain"></div>
                     <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                         <div>
                             <div class="text-[10px] text-slate-400 uppercase font-semibold">Batting Team</div>
@@ -512,69 +356,44 @@
                             <div class="text-5xl font-heading font-extrabold text-jpl-gold" id="ch-score-display">0 / 0</div>
                             <div class="text-xs text-slate-400 font-mono" id="ch-overs-display">Overs: 0.0</div>
                         </div>
-
                         <div class="text-center space-y-1 py-3 border-y md:border-y-0 md:border-x border-slate-800/80">
                             <div class="text-[10px] text-slate-400 uppercase font-semibold">Target</div>
                             <div class="text-xl font-bold text-lime-400 font-mono" id="ch-target-display">--</div>
-                            <div class="text-[10px] font-semibold text-slate-300 uppercase tracking-wide">
-                                CRR: <strong id="ch-crr" class="text-white">0.00</strong> | RRR: <strong id="ch-rrr" class="text-white">--</strong>
-                            </div>
+                            <div class="text-[10px] font-semibold text-slate-300 uppercase tracking-wide">CRR: <strong id="ch-crr" class="text-white">0.00</strong> | RRR: <strong id="ch-rrr" class="text-white">--</strong></div>
                         </div>
-
                         <div class="md:text-right">
                             <div class="text-[10px] text-slate-400 uppercase font-semibold">Bowling Team</div>
                             <div class="text-2xl font-bold text-white uppercase" id="ch-bowling-team">--</div>
                             <div class="text-[10px] text-slate-400 mt-2 uppercase font-mono" id="ch-extras-display">Extras: 0</div>
                         </div>
                     </div>
-
-                    <!-- Over Ball Ticker -->
                     <div class="relative z-10 flex items-center gap-2 border-t border-slate-800/80 pt-3 overflow-x-auto">
                         <span class="text-[10px] text-slate-400 font-semibold uppercase shrink-0">This Over:</span>
                         <div id="ch-over-balls" class="flex gap-1.5 items-center"></div>
                     </div>
                 </div>
 
-                <!-- Tables -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
-                        <h4 class="text-[10px] font-bold text-jpl-gold uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-cricket-bat-ball"></i> Batters
-                        </h4>
+                        <h4 class="text-[10px] font-bold text-jpl-gold uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-cricket-bat-ball"></i> Batters</h4>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs font-mono">
-                                <thead class="bg-slate-800/60 text-slate-400 uppercase text-[10px]">
-                                    <tr>
-                                        <th class="p-2">Batter</th>
-                                        <th class="p-2">R</th><th class="p-2">B</th><th class="p-2">4s</th><th class="p-2">6s</th>
-                                        <th class="p-2 text-right">SR</th>
-                                    </tr>
-                                </thead>
+                                <thead class="bg-slate-800/60 text-slate-400 uppercase text-[10px]"><tr><th class="p-2">Batter</th><th class="p-2">R</th><th class="p-2">B</th><th class="p-2">4s</th><th class="p-2">6s</th><th class="p-2 text-right">SR</th></tr></thead>
                                 <tbody id="ch-batters-table"></tbody>
                             </table>
                         </div>
                     </div>
-
                     <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 space-y-3">
-                        <h4 class="text-[10px] font-bold text-jpl-accent uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-baseball"></i> Bowler
-                        </h4>
+                        <h4 class="text-[10px] font-bold text-jpl-accent uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-baseball"></i> Bowler</h4>
                         <div class="overflow-x-auto">
                             <table class="w-full text-left text-xs font-mono">
-                                <thead class="bg-slate-800/60 text-slate-400 uppercase text-[10px]">
-                                    <tr>
-                                        <th class="p-2">Bowler</th>
-                                        <th class="p-2">O</th><th class="p-2">M</th><th class="p-2">R</th><th class="p-2">W</th>
-                                        <th class="p-2 text-right">Econ</th>
-                                    </tr>
-                                </thead>
+                                <thead class="bg-slate-800/60 text-slate-400 uppercase text-[10px]"><tr><th class="p-2">Bowler</th><th class="p-2">O</th><th class="p-2">M</th><th class="p-2">R</th><th class="p-2">W</th><th class="p-2 text-right">Econ</th></tr></thead>
                                 <tbody id="ch-bowler-table"></tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-                <!-- Feed -->
                 <div class="space-y-3">
                     <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Commentary Timeline</h4>
                     <div id="ch-commentary-feed" class="space-y-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar font-mono text-[10px] md:text-xs"></div>
@@ -586,10 +405,7 @@
         <section id="sec-fixtures" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4 flex items-center gap-4">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
-                <div>
-                    <span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Match Schedule</span>
-                    <h2 class="text-4xl font-heading font-bold text-white uppercase">Tournament Fixtures</h2>
-                </div>
+                <div><span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Match Schedule</span><h2 class="text-4xl font-heading font-bold text-white uppercase">Tournament Fixtures</h2></div>
             </div>
             <div id="fixtures-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
         </section>
@@ -598,10 +414,7 @@
         <section id="sec-past-seasons" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4 flex items-center gap-4">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
-                <div>
-                    <span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">JPL Heritage</span>
-                    <h2 class="text-4xl font-heading font-bold text-white uppercase">Hall of Fame</h2>
-                </div>
+                <div><span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">JPL Heritage</span><h2 class="text-4xl font-heading font-bold text-white uppercase">Hall of Fame</h2></div>
             </div>
             <div id="past-seasons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
@@ -610,10 +423,7 @@
         <section id="sec-committee" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4 flex items-center gap-4">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
-                <div>
-                    <span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Tournament Board</span>
-                    <h2 class="text-4xl font-heading font-bold text-white uppercase">Organizing Committee</h2>
-                </div>
+                <div><span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Tournament Board</span><h2 class="text-4xl font-heading font-bold text-white uppercase">Organizing Committee</h2></div>
             </div>
             <div id="committee-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
         </section>
@@ -622,21 +432,13 @@
         <section id="sec-memory" class="hidden space-y-8">
             <div class="border-b border-slate-800 pb-4 flex items-center gap-4">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-12 h-12 object-contain hidden sm:block">
-                <div>
-                    <span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Photo Gallery</span>
-                    <h2 class="text-4xl font-heading font-bold text-white uppercase">Memory Corner</h2>
-                    <p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Highlights & Celebrations</p>
-                </div>
+                <div><span class="text-[10px] font-bold text-jpl-gold uppercase tracking-widest">Photo Gallery</span><h2 class="text-4xl font-heading font-bold text-white uppercase">Memory Corner</h2><p class="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Highlights & Celebrations</p></div>
             </div>
-            
-            <div id="memory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dynamically populated from admin -->
-            </div>
+            <div id="memory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
         </section>
 
         <!-- ================= 8. ADMIN CONTROL PANEL ================= -->
         <section id="sec-admin" class="hidden space-y-8">
-            <!-- ADMIN PIN -->
             <div id="admin-pin-screen" class="max-w-md mx-auto bg-jpl-card border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
                 <div class="text-center space-y-3">
                     <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-16 h-16 mx-auto object-contain">
@@ -650,23 +452,15 @@
                 <div id="admin-pin-error" class="hidden p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 text-xs font-semibold text-center"></div>
             </div>
 
-            <!-- UNLOCKED DASHBOARD -->
             <div id="admin-dashboard-view" class="hidden space-y-8">
-                <!-- Header -->
                 <div class="bg-jpl-card border border-slate-800 rounded-2xl p-4 md:p-6 flex flex-wrap items-center justify-between gap-4">
                     <div class="flex items-center gap-4">
                         <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-10 h-10 object-contain">
-                        <div>
-                            <span class="text-[9px] text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Admin Session</span>
-                            <h2 class="text-2xl font-heading font-bold text-white uppercase">Control Center</h2>
-                        </div>
+                        <div><span class="text-[9px] text-emerald-400 font-bold uppercase tracking-wider"><i class="fa-solid fa-circle text-[6px] mr-1"></i> Admin Session</span><h2 class="text-2xl font-heading font-bold text-white uppercase">Control Center</h2></div>
                     </div>
-                    <button onclick="lockAdminPanel()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-[10px] font-bold hover:bg-rose-500/20 hover:text-rose-400 transition-all uppercase tracking-widest">
-                        <i class="fa-solid fa-lock mr-1"></i> Lock
-                    </button>
+                    <button onclick="lockAdminPanel()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-[10px] font-bold hover:bg-rose-500/20 hover:text-rose-400 transition-all uppercase tracking-widest"><i class="fa-solid fa-lock mr-1"></i> Lock</button>
                 </div>
 
-                <!-- Tabs -->
                 <div class="flex flex-wrap gap-2 border-b border-slate-800 pb-3">
                     <button onclick="switchAdminTab('otps')" id="admin-tab-otps" class="admin-tab-btn active px-4 py-2 rounded-xl text-[10px] font-bold uppercase transition-all bg-jpl-gold text-slate-950">Passcodes</button>
                     <button onclick="switchAdminTab('roster')" id="admin-tab-roster" class="admin-tab-btn px-4 py-2 rounded-xl text-[10px] font-bold uppercase transition-all">Players</button>
@@ -681,19 +475,15 @@
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 flex flex-wrap gap-4 items-end">
                         <div class="flex-grow max-w-xs">
                             <label class="block text-[10px] font-semibold text-slate-400 mb-1 uppercase">Custom Passcode (Opt)</label>
-                            <input type="text" id="admin-custom-otp" placeholder="Auto-generated if empty" uppercase maxlength="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white font-mono uppercase focus:outline-none">
+                            <input type="text" id="admin-custom-otp" placeholder="Auto-generated" uppercase maxlength="10" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-sm text-white font-mono uppercase focus:outline-none">
                         </div>
                         <button onclick="generateNewOTP()" class="px-6 py-2.5 rounded-xl bg-jpl-gold text-slate-950 font-bold text-xs uppercase transition-all">Generate OTP</button>
                     </div>
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left text-xs font-mono">
-                                <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]">
-                                    <tr><th class="p-4">Code</th><th class="p-4">Status</th><th class="p-4 text-right">Action</th></tr>
-                                </thead>
-                                <tbody id="admin-otps-table-body" class="divide-y divide-slate-800"></tbody>
-                            </table>
-                        </div>
+                        <table class="w-full text-left text-xs font-mono">
+                            <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]"><tr><th class="p-4">Code</th><th class="p-4">Status</th><th class="p-4 text-right">Action</th></tr></thead>
+                            <tbody id="admin-otps-table-body" class="divide-y divide-slate-800"></tbody>
+                        </table>
                     </div>
                 </div>
 
@@ -703,31 +493,27 @@
                         <input type="text" id="admin-roster-search" oninput="renderAdminRoster()" placeholder="Search players..." class="w-full sm:w-64 bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none font-mono">
                     </div>
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left text-xs font-mono">
-                                <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]">
-                                    <tr><th class="p-4">ID</th><th class="p-4">Name</th><th class="p-4">Role / #</th><th class="p-4 text-right">Delete</th></tr>
-                                </thead>
-                                <tbody id="admin-roster-table-body" class="divide-y divide-slate-800"></tbody>
-                            </table>
-                        </div>
+                        <table class="w-full text-left text-xs font-mono">
+                            <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]"><tr><th class="p-4">ID</th><th class="p-4">Name</th><th class="p-4">Role / #</th><th class="p-4 text-right">Delete</th></tr></thead>
+                            <tbody id="admin-roster-table-body" class="divide-y divide-slate-800"></tbody>
+                        </table>
                     </div>
                 </div>
 
-                <!-- ADMIN: LIVE SCORER -->
+                <!-- ADMIN: SCORER -->
                 <div id="admin-sub-scorer" class="hidden space-y-6">
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                         <div class="flex items-center justify-between border-b border-slate-800 pb-2">
                             <h3 class="text-lg font-heading font-bold text-white uppercase">Match Setup</h3>
                             <div class="flex gap-2">
-                                <button onclick="resetMatchData()" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase bg-slate-800 text-rose-400 border border-slate-700 hover:bg-slate-700">Clear Data</button>
+                                <button onclick="resetMatchData()" class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase bg-slate-800 text-rose-400 border border-slate-700">Clear Data</button>
                                 <button onclick="toggleMatchLiveStatus()" id="btn-toggle-match-status" class="px-4 py-1.5 rounded-lg text-[10px] font-bold uppercase transition-all bg-emerald-600 text-white">Start Match</button>
                             </div>
                         </div>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            <input type="text" id="scorer-setup-teama" value="Team Alpha" placeholder="Batting Team" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none uppercase font-mono">
-                            <input type="text" id="scorer-setup-teamb" value="Team Strikers" placeholder="Bowling Team" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none uppercase font-mono">
-                            <input type="number" id="scorer-setup-overs" value="10" min="1" max="50" placeholder="Overs" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white focus:outline-none font-mono">
+                            <input type="text" id="scorer-setup-teama" value="Team Alpha" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white uppercase font-mono">
+                            <input type="text" id="scorer-setup-teamb" value="Team Strikers" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white uppercase font-mono">
+                            <input type="number" id="scorer-setup-overs" value="10" min="1" max="50" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white font-mono">
                         </div>
                     </div>
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-6">
@@ -736,18 +522,18 @@
                             <button onclick="undoLastBall()" class="text-[10px] text-amber-400 font-bold uppercase"><i class="fa-solid fa-rotate-left"></i> Undo Ball</button>
                         </div>
                         <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                            <button onclick="recordBall(0)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-xl font-bold text-white">0 (Dot)</button>
+                            <button onclick="recordBall(0)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-xl font-bold text-white">0</button>
                             <button onclick="recordBall(1)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-xl font-bold text-white">1</button>
                             <button onclick="recordBall(2)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-xl font-bold text-white">2</button>
                             <button onclick="recordBall(3)" class="py-4 bg-slate-900 border border-slate-700 hover:border-jpl-gold rounded-xl font-heading text-xl font-bold text-white">3</button>
-                            <button onclick="recordBall(4)" class="py-4 bg-lime-500/10 border border-lime-500 hover:bg-lime-500/20 rounded-xl font-heading text-xl font-bold text-jpl-gold">4</button>
-                            <button onclick="recordBall(6)" class="py-4 bg-lime-500/20 border border-lime-500 hover:bg-lime-500/30 rounded-xl font-heading text-xl font-bold text-jpl-gold">6</button>
+                            <button onclick="recordBall(4)" class="py-4 bg-lime-500/10 border border-lime-500 rounded-xl font-heading text-xl font-bold text-jpl-gold">4</button>
+                            <button onclick="recordBall(6)" class="py-4 bg-lime-500/20 border border-lime-500 rounded-xl font-heading text-xl font-bold text-jpl-gold">6</button>
                         </div>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            <button onclick="recordWicket()" class="py-3 bg-rose-500/20 border border-rose-500 hover:bg-rose-500/30 rounded-xl font-bold text-rose-400 text-[10px] uppercase">Wicket</button>
-                            <button onclick="recordExtra('WD')" class="py-3 bg-blue-500/10 border border-blue-500/40 hover:bg-blue-500/20 rounded-xl font-bold text-blue-300 text-[10px] uppercase">Wide (+1)</button>
-                            <button onclick="recordExtra('NB')" class="py-3 bg-purple-500/10 border border-purple-500/40 hover:bg-purple-500/20 rounded-xl font-bold text-purple-300 text-[10px] uppercase">No Ball (+1)</button>
-                            <button onclick="swapStriker()" class="py-3 bg-slate-800 hover:bg-slate-700 rounded-xl font-bold text-slate-300 text-[10px] uppercase">Swap Strike</button>
+                            <button onclick="recordWicket()" class="py-3 bg-rose-500/20 border border-rose-500 rounded-xl font-bold text-rose-400 text-[10px] uppercase">Wicket</button>
+                            <button onclick="recordExtra('WD')" class="py-3 bg-blue-500/10 border border-blue-500/40 rounded-xl font-bold text-blue-300 text-[10px] uppercase">Wide</button>
+                            <button onclick="recordExtra('NB')" class="py-3 bg-purple-500/10 border border-purple-500/40 rounded-xl font-bold text-purple-300 text-[10px] uppercase">No Ball</button>
+                            <button onclick="swapStriker()" class="py-3 bg-slate-800 rounded-xl font-bold text-slate-300 text-[10px] uppercase">Swap Strike</button>
                         </div>
                     </div>
                 </div>
@@ -766,40 +552,36 @@
                         </form>
                     </div>
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
-                        <table class="w-full text-left text-xs font-mono">
-                            <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]"><tr><th class="p-3">Match</th><th class="p-3 text-right">Action</th></tr></thead>
-                            <tbody id="admin-fix-table" class="divide-y divide-slate-800"></tbody>
-                        </table>
+                        <table class="w-full text-left text-xs font-mono"><tbody id="admin-fix-table" class="divide-y divide-slate-800"></tbody></table>
                     </div>
                 </div>
 
-                <!-- ADMIN: GALLERY UPLOAD -->
+                <!-- ADMIN: MEMORY GALLERY (Device File Upload) -->
                 <div id="admin-sub-memory-mgr" class="hidden space-y-6">
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
-                        <h3 class="text-lg font-heading font-bold text-white uppercase border-b border-slate-800 pb-2">Upload to Memory Corner</h3>
+                        <h3 class="text-lg font-heading font-bold text-white uppercase border-b border-slate-800 pb-2">Upload Photo From Device</h3>
                         <form id="form-add-memory" onsubmit="addMemoryPhoto(); return false;" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" id="mem-title" required placeholder="Photo Title / Caption" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono">
+                            <input type="text" id="mem-title" required placeholder="Photo Caption / Title" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono">
                             <select id="mem-category" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white uppercase font-mono">
                                 <option value="Match Action">Match Action</option>
                                 <option value="Celebration">Celebration</option>
                                 <option value="Trophy & Honors">Trophy & Honors</option>
                                 <option value="Team Moments">Team Moments</option>
                             </select>
-                            <input type="url" id="mem-url" required placeholder="Image URL (Link)" class="col-span-1 sm:col-span-2 bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono">
-                            <button type="submit" class="col-span-1 sm:col-span-2 py-3 rounded-xl bg-jpl-gold text-slate-950 font-bold text-xs uppercase">Upload Photo</button>
+                            <div class="col-span-1 sm:col-span-2">
+                                <label class="block text-[10px] text-slate-400 uppercase mb-1 font-mono">Select Image from Device</label>
+                                <input type="file" id="mem-file-input" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-slate-300 font-mono file:mr-4 file:py-1 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-jpl-gold file:text-slate-950 hover:file:bg-lime-400">
+                            </div>
+                            <button type="submit" class="col-span-1 sm:col-span-2 py-3 rounded-xl bg-jpl-gold text-slate-950 font-bold text-xs uppercase">Upload Memory</button>
                         </form>
                     </div>
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl overflow-hidden">
-                        <table class="w-full text-left text-xs font-mono">
-                            <thead class="bg-slate-900/80 text-slate-400 uppercase text-[10px]"><tr><th class="p-3">Photo Title</th><th class="p-3 text-right">Delete</th></tr></thead>
-                            <tbody id="admin-mem-table" class="divide-y divide-slate-800"></tbody>
-                        </table>
+                        <table class="w-full text-left text-xs font-mono"><tbody id="admin-mem-table" class="divide-y divide-slate-800"></tbody></table>
                     </div>
                 </div>
 
-                <!-- ADMIN: SETTINGS (Season, Reg, Committee, Hall of Fame) -->
+                <!-- ADMIN: SETTINGS -->
                 <div id="admin-sub-settings" class="hidden space-y-8">
-                    <!-- Master Controls -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                             <h3 class="text-sm font-bold text-white uppercase border-b border-slate-800 pb-2">Active Season</h3>
@@ -817,7 +599,6 @@
                         </div>
                     </div>
 
-                    <!-- Add Committee -->
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                         <h3 class="text-sm font-bold text-white uppercase border-b border-slate-800 pb-2">Add Committee</h3>
                         <form onsubmit="addCommitteeMember(); return false;" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -828,11 +609,10 @@
                         <table class="w-full text-left text-xs font-mono mt-4"><tbody id="admin-comm-table" class="divide-y divide-slate-800"></tbody></table>
                     </div>
 
-                    <!-- Add History -->
                     <div class="bg-jpl-card border border-slate-800 rounded-2xl p-6 space-y-4">
                         <h3 class="text-sm font-bold text-white uppercase border-b border-slate-800 pb-2">Add Past Season</h3>
                         <form onsubmit="addPastSeasonRecord(); return false;" class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <input type="text" id="past-season-name" required placeholder="Season (e.g. S6)" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono uppercase">
+                            <input type="text" id="past-season-name" required placeholder="Season" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono uppercase">
                             <input type="text" id="past-champion" required placeholder="Champion" class="bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white font-mono">
                             <button type="submit" class="bg-jpl-gold text-slate-950 font-bold text-[10px] rounded-xl uppercase">Save</button>
                         </form>
@@ -846,25 +626,18 @@
     <!-- RECEIPT MODAL -->
     <div id="receipt-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-jpl-card border border-lime-500/40 rounded-3xl p-6 md:p-8 max-w-lg w-full space-y-6 shadow-2xl relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none w-48 h-48">
-                <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-full h-full object-contain">
-            </div>
-            
+            <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none w-48 h-48"><img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-full h-full object-contain"></div>
             <div class="text-center space-y-2 relative z-10">
                 <img src="7a17025d0009d5d0dd6533260399c473.JPEG" class="w-16 h-16 mx-auto object-contain">
                 <h3 class="text-3xl font-heading font-bold text-white uppercase">Player Pass Ready</h3>
                 <p class="text-[10px] text-slate-400 uppercase tracking-widest" id="receipt-season-subtitle">JPL Official Document</p>
             </div>
-
             <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3 font-mono text-xs relative z-10">
-                <div class="flex justify-between border-b border-slate-800 pb-2">
-                    <span class="text-slate-400">Reg ID:</span><span class="text-jpl-gold font-bold text-sm" id="receipt-reg-id">JPL-0001</span>
-                </div>
+                <div class="flex justify-between border-b border-slate-800 pb-2"><span class="text-slate-400">Reg ID:</span><span class="text-jpl-gold font-bold text-sm" id="receipt-reg-id">JPL-0001</span></div>
                 <div class="flex justify-between"><span class="text-slate-400">Name:</span><span class="text-white font-bold uppercase" id="receipt-name">--</span></div>
                 <div class="flex justify-between"><span class="text-slate-400">Role:</span><span class="text-white font-bold uppercase" id="receipt-role">--</span></div>
                 <div class="flex justify-between"><span class="text-slate-400">Jersey:</span><span class="text-white font-bold" id="receipt-number">--</span></div>
             </div>
-
             <div class="flex gap-3 relative z-10">
                 <button onclick="window.print()" class="flex-1 py-3 bg-slate-800 text-white rounded-xl text-xs font-bold uppercase"><i class="fa-solid fa-print"></i> Print</button>
                 <button onclick="closeReceiptModal()" class="flex-1 py-3 bg-jpl-gold text-slate-950 rounded-xl text-xs font-bold uppercase">Done</button>
@@ -875,7 +648,7 @@
     <!-- JAVASCRIPT LOGIC -->
     <script>
         const ADMIN_PIN = "22902276";
-        const LOGO_SRC = "7a17025d0009d5d0dd6533260399c473.JPEG"; // Explicit source reference
+        const LOGO_SRC = "7a17025d0009d5d0dd6533260399c473.JPEG";
 
         let appState = {
             activeSeason: localStorage.getItem('jpl_season') || 'Season 7',
@@ -888,7 +661,6 @@
             committee: JSON.parse(localStorage.getItem('jpl_committee')) || [],
             pastSeasons: JSON.parse(localStorage.getItem('jpl_past_seasons')) || [],
             memories: JSON.parse(localStorage.getItem('jpl_memories')) || [
-                // Demo memory to show structure
                 { id: 1, title: 'Champions Trophy Unveiling', url: LOGO_SRC, cat: 'Trophy & Honors' }
             ],
             liveMatch: JSON.parse(localStorage.getItem('jpl_live_match')) || {
@@ -925,7 +697,6 @@
             updateStatsCounters();
         }
 
-        // --- UI & NAVIGATION ---
         function applyActiveSeasonBranding() {
             const s = appState.activeSeason;
             document.getElementById('brand-season-display').innerText = s;
@@ -948,7 +719,6 @@
         }
         function toggleMobileMenu() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-        // --- REGISTRATION ---
         function handleRegistrationTabAccess() {
             const soon = document.getElementById('reg-coming-soon-view');
             const gate = document.getElementById('reg-gatekeeper-view');
@@ -1014,18 +784,13 @@
         }
         function closeReceiptModal() { document.getElementById('receipt-modal').classList.add('hidden'); switchTab('home'); }
 
-        // --- PUBLIC VIEWS (Fixtures, History, Committee, Memory) ---
         function renderFixtures() {
             const grid = document.getElementById('fixtures-grid');
             grid.innerHTML = appState.fixtures.length === 0 ? `<div class="col-span-full text-center text-slate-500 font-mono text-xs">No fixtures scheduled.</div>` : '';
             appState.fixtures.forEach(f => {
                 grid.innerHTML += `<div class="bg-jpl-card border border-slate-800 rounded-xl p-4">
-                    <div class="flex justify-between border-b border-slate-800 pb-2 mb-2 text-[10px] uppercase font-bold">
-                        <span class="text-jpl-gold">${f.stage}</span><span class="text-slate-400">${f.datetime}</span>
-                    </div>
-                    <div class="flex justify-between items-center text-sm font-bold text-white uppercase font-mono">
-                        <span>${f.teamA}</span><span class="text-[10px] text-slate-500">VS</span><span>${f.teamB}</span>
-                    </div>
+                    <div class="flex justify-between border-b border-slate-800 pb-2 mb-2 text-[10px] uppercase font-bold"><span class="text-jpl-gold">${f.stage}</span><span class="text-slate-400">${f.datetime}</span></div>
+                    <div class="flex justify-between items-center text-sm font-bold text-white uppercase font-mono"><span>${f.teamA}</span><span class="text-[10px] text-slate-500">VS</span><span>${f.teamB}</span></div>
                     <div class="text-[10px] text-slate-400 mt-2 uppercase">${f.venue}</div>
                 </div>`;
             });
@@ -1074,7 +839,6 @@
             document.getElementById('home-stat-photos').innerText = appState.memories.length;
         }
 
-        // --- ADMIN ACCESS & CONTROLS ---
         function verifyAdminPin() {
             if (document.getElementById('admin-pin-input').value === ADMIN_PIN) {
                 appState.isAdminUnlocked = true;
@@ -1134,7 +898,6 @@
             if(confirm("Remove player?")) { appState.players = appState.players.filter(p => p.regId !== id); saveState(); renderAdminRoster(); }
         }
 
-        // Add Forms
         function addMatchFixture() {
             appState.fixtures.push({ id: Date.now(), teamA: document.getElementById('fix-teama').value, teamB: document.getElementById('fix-teamb').value, datetime: document.getElementById('fix-datetime').value, venue: document.getElementById('fix-venue').value, stage: document.getElementById('fix-stage').value || 'Match' });
             saveState(); renderFixtures(); renderAdminDeleteTables(); document.getElementById('form-add-fixture').reset();
@@ -1147,12 +910,25 @@
             appState.pastSeasons.push({ id: Date.now(), season: document.getElementById('past-season-name').value, champion: document.getElementById('past-champion').value });
             saveState(); renderPastSeasons(); renderAdminDeleteTables(); document.getElementById('past-season-name').value=''; document.getElementById('past-champion').value='';
         }
+
+        // Direct Device File Upload handler for Memory Corner
         function addMemoryPhoto() {
-            appState.memories.push({ id: Date.now(), title: document.getElementById('mem-title').value, cat: document.getElementById('mem-category').value, url: document.getElementById('mem-url').value });
-            saveState(); renderMemoryGallery(); renderAdminDeleteTables(); document.getElementById('form-add-memory').reset();
+            const fileInput = document.getElementById('mem-file-input');
+            const title = document.getElementById('mem-title').value;
+            const cat = document.getElementById('mem-category').value;
+
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    appState.memories.push({ id: Date.now(), title, cat, url: e.target.result });
+                    saveState(); renderMemoryGallery(); renderAdminDeleteTables();
+                    document.getElementById('form-add-memory').reset();
+                    alert("Memory photo uploaded successfully!");
+                }
+                reader.readAsDataURL(fileInput.files[0]);
+            }
         }
 
-        // Admin Delete Tables
         function renderAdminDeleteTables() {
             const fixTb = document.getElementById('admin-fix-table'); fixTb.innerHTML='';
             appState.fixtures.forEach(f => fixTb.innerHTML+=`<tr><td class="p-2">${f.teamA} v ${f.teamB}</td><td class="p-2 text-right"><button onclick="delData('fixtures', ${f.id})" class="text-rose-400"><i class="fa-solid fa-trash"></i></button></td></tr>`);
@@ -1173,7 +949,6 @@
             renderAdminDeleteTables();
         }
 
-        // --- LIVE SCORER ---
         function toggleMatchLiveStatus() {
             let lm = appState.liveMatch; lm.isMatchLive = !lm.isMatchLive;
             if(lm.isMatchLive){ lm.teamA = document.getElementById('scorer-setup-teama').value; lm.teamB = document.getElementById('scorer-setup-teamb').value; }
